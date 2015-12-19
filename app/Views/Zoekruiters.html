@@ -1,0 +1,33 @@
+
+<button class=btn-info data-ng-click="ctrlRuit.zoekRuiters()"> Vind leden</button>
+<input data-ng-model="zoekLeden">
+
+
+Plaats:
+
+Provincie:
+
+Interesses:
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">Geinteresseerd in: </label>
+
+    <div class="col-sm-8" style="padding-left: 15px; padding-bottom: 15px; padding-top: 5px; font-size: medium ">
+        <input type="checkbox" id="samen_trainen" ng-model=ctrlReg.newMember.samenTrainen> Samen trainen
+        <input type="checkbox" id="rijden_locatie" ng-model=ctrlReg.newMember.rijdenLocatie> Samen rijden op andere
+        locatie
+        <input type="checkbox" id="in_en_verkoop" ng-model=ctrlReg.newMember.inEnVerkoop> Verkoop of inkoop van
+        paarden
+        <input type="checkbox" id="Voorlichting" ng-model=ctrlReg.newMember.voorlichting> Voorlichten begeleiden
+        ruiters
+        <input type="checkbox" id="paarden_trainen" ng-model=ctrlReg.newMember.paardenTrainen> Paarden trainen
+        <input type="checkbox" id="paarden_verzorgen" ng-model=ctrlReg.newMember.paardenVerzorgen> Paarden verzorgen
+        <input type="checkbox" id="voeding_gezondheid" ng-model=ctrlReg.newMember.voedingGezondheid> Voeding en
+        gezondheid
+    </div>
+</div>
+
+
+
+<!-- Script needed for plaatsnamen functie :) -->
+<script src="app/Controllers/general_js/plaatsnamen_functie.js" type="text/javascript"></script>

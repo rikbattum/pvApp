@@ -1,0 +1,45 @@
+<link href="app/CSS%20and%20content/bootstrap.css" rel="stylesheet" type="text/css"/>
+
+<div class="col-lg-offset-2">
+
+    <h1 class="col-lg-offset-2"> De leukste ruiters van Nederland</h1>
+    <br>
+    <br>
+    <button class="btn btn-info" data-ng-click="ctrlRuit.zoekRuitersLink()">Zoek ruiters!</button>
+    <br>
+    <br>
+
+
+    <table id="ruiters" class="table table-striped table-hover">
+
+        <thead>
+        <th>naam</th>
+        <th>achternaam</th>
+        <th>plaats</th>
+        <th>paard</th>
+        <th>paard</th>
+        </thead>
+
+        <tbody data-ng-repeat="ruiter in ctrlRuit.ruiters">
+
+        <tr>
+            <td> {{ruiter.voornaam}}</td>
+            <td> {{ruiter.achternaam}}</td>
+            <td> {{ruiter.plaatsnamen}}</td>
+            <td> {{ruiter.paard1}}</td>
+            <td> {{ruiter.paard2}}</td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+
+    <button class="btn btn-warning" ng-click="save();">Sla op</button>
+    <!--</div>-->
+
+</div>
+
+
+
