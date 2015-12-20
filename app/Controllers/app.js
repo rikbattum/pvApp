@@ -17,11 +17,6 @@ var PVapp = angular.module('PVapp', [
                 controller: 'basicController',
                 controllerAs: 'ctrlbasic'
             })
-            .when('/register', {
-                templateUrl: 'app/Views/Register.html',
-                controller: 'AanmeldController',
-                controllerAs: 'ctrlReg'
-            })
             .when('/ruiters', {
                 templateUrl: 'app/Views/Ruiters.html',
                 controller: 'RuiterController',
