@@ -1,21 +1,27 @@
-'use strict';
+(function () {
+    'use strict';
 
-// Declare app level module which depends on views, and components
-var PVapp = angular.module('PVapp', [
-    'ngRoute'
-]).
+    // Declare app level module which depends on views, and components
+    var PVapp = angular.module('PVapp', [
+        'ngRoute'
+    ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/',
-            {
-                redirectTo: function () {
-                    return '/myCarousel';
-                }
-            })
+                {
+                    redirectTo: function () {
+                        return '/myCarousel';
+                    }
+                })
             .when('/myCarousel', {
                 templateUrl: 'app/Views/Home.html',
                 controller: 'basicController',
                 controllerAs: 'ctrlbasic'
+            })
+            .when('/register', {
+                templateUrl: 'app/Views/Register.html'
+                //controller: 'AanmeldController',
+                //controllerAs: 'ctrlReg'
             })
             .when('/ruiters', {
                 templateUrl: 'app/Views/Ruiters.html',
@@ -34,9 +40,9 @@ var PVapp = angular.module('PVapp', [
     }]);
 
 
-PVapp.config(['$httpProvider', function ($httpProvider) {
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}
-]);
-
+    PVapp.config(['$httpProvider', function ($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+    ]);
+})();

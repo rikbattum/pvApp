@@ -1,10 +1,15 @@
 (function () {
+
+    'use strict';
+
     angular.module('PVapp').directive('loginDirective', [function () {
         return {
             restrict: 'EA',
             scope: true,
-            templateUrl:'/view/Register.html',
-            link: function ($scope, $element, $attrs) {
+            controller: function (memberService, $timeout, $location, $log) {
+                var vm = this;
+                $log.info('loaded log-in directive');
+
                 function getRandomIntInclusive(min, max) {
                     var x = Math.floor(Math.random() * (max - min + 1)) + min;
                     var y = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -13,7 +18,7 @@
                     return (memberid);
                 }
 
-                $scope.registerMember = function () {
+                vm.registerMember = function () {
                     console.log('inside registgerMember', vm.newMember);
                     vm.newMember.memberId = getRandomIntInclusive(0, 100000000000000);
                     console.log('this is memberId', vm.newMember.memberId);
@@ -35,7 +40,6 @@
 
                                 $timeout(function () {
                                     vm.showFailureRegistration = false;
-
                                 }, 4000);
                             }
                         })
@@ -44,7 +48,8 @@
                         });
                     console.log('this is the directive working');
                 };
-            }
+            },
+            controllerAs: 'ctrlReg'
         };
     }]);
 })();
