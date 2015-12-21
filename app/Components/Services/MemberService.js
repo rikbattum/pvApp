@@ -2,14 +2,15 @@
 
 // This service should handle all front-end CRUD operations for the Jax-RS member service.
 angular.module('PVapp')
-    .factory('memberService', function ($http) {
+    .factory('memberService', function ($http, PVConfig) {
 
+        var baseUrlMember= PVConfig.baseUrl + 'Member';
 
         var getMemberDetails = function (res) {
 
             return $http({
                 method: 'GET',
-                url: 'http://localhost:8080/nl.paardenvriendjes2018/webresources/fjvb.nl.paardenvriendjes2018.member',
+                url: baseUrlMember,
                 headers: {
                     'Accept': 'application/json'
                 }
@@ -24,7 +25,7 @@ angular.module('PVapp')
 
         var postMember = function (newMember) {
 
-            return $http.post('http://localhost:8080/nl.paardenvriendjes2018/webresources/fjvb.nl.paardenvriendjes2018.member', newMember)
+            return $http.post(baseUrlMember, newMember)
                 .success(function (data, status) {
                     console.log('reached post statement');
                 })
@@ -38,7 +39,7 @@ angular.module('PVapp')
 
             return $http({
                 method: 'PUT',
-                url: "http://localhost:8080/nl.paardenvriendjes2018/webresources/fjvb.nl.paardenvriendjes2018.member",
+                url: baseUrlMember,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -50,14 +51,13 @@ angular.module('PVapp')
                     console.log(data, status);
                     return data + status;
                 });
-
         };
 
         var deleteMemberDetails = function () {
 
             return $http({
                 method: 'DELETE',
-                url: 'http://localhost:8080/nl.paardenvriendjes2018/webresources/fjvb.nl.paardenvriendjes2018.member',
+                url: baseUrlMember,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -68,7 +68,6 @@ angular.module('PVapp')
                 .error(function (error, status) {
                     console.log(error);
                 });
-
         };
 
         return {
