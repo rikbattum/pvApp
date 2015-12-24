@@ -10,7 +10,7 @@
 //
 //  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
 //    browser.get('/myCarousel');
-//    expect(browser.getLocationAbsUrl()).toMatch('/Home.html');
+//    expect(browser.getLocationAbsUrl()).toMatch('/home.html');
 //  });
 //
 //

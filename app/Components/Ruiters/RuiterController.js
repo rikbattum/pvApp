@@ -1,5 +1,4 @@
 (function () {
-
     'use strict';
 
 // specific controller for handling the Ruiters view;

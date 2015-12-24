@@ -3,7 +3,7 @@
 
     // Declare app level module which depends on views, and components
     var PVapp = angular.module('PVapp', [
-        'ngRoute'
+        'ngRoute', 'angular-ladda'
     ]).
         config(['$routeProvider', function ($routeProvider) {
             $routeProvider
@@ -14,20 +14,20 @@
                         }
                     })
                 .when('/myCarousel', {
-                    templateUrl: 'app/Components/Home/Home.html',
+                    templateUrl: 'app/Components/Home/home.html',
                     controller: 'basicController',
                     controllerAs: 'ctrlbasic'
                 })
                 .when('/register', {
-                    templateUrl: 'app/Components/Register/Register.html'
+                    templateUrl: 'app/Components/Register/register.html'
                 })
                 .when('/ruiters', {
-                    templateUrl: 'app/Components/Ruiters/Ruiters.html',
+                    templateUrl: 'app/Components/Ruiters/ruiters.html',
                     controller: 'RuiterController',
                     controllerAs: 'ctrlRuit'
                 })
                 .when('/zoekruiters', {
-                    templateUrl: 'app/Components/Ruiters/Zoekruiters.html',
+                    templateUrl: 'app/Components/Ruiters/zoekRuiters.html',
                     controller: 'RuiterController',
                     controllerAs: 'ctrlRuit'
                 })

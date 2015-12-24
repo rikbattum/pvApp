@@ -1,14 +1,16 @@
 (function () {
-
     'use strict';
 
-    angular.module('PVapp').directive('loginDirective', [function () {
-        return {
-            restrict: 'EA',
-        scope: true,
-        controller: function (memberService, $timeout, $location, $log) {
+    angular.module('PVapp').controller('registerController', ['memberService', '$timeout', '$location', function (memberService, $timeout, $location) {
+
         var vm = this;
-        $log.info('loaded log-in directive');
+        vm.submitting = false;
+
+        function doLog() {
+            console.log('running contoller');
+        }
+
+        doLog();
 
         function getRandomIntInclusive(min, max) {
             var x = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -25,10 +27,13 @@
 
             memberService.postNewMember(vm.newMember)
                 .then(function (data) {
+                    vm.submitting = true;
                     console.log('post succesfull', data, data.status);
+
                     if (data.status === 204) {
                         console.log('status afgevangen');
                         vm.showSuccessRegistration = true;
+                        vm.submitting = false;
                         $timeout(function () {
                             vm.showSuccessRegistration = false;
                             console.log('ERROR');
@@ -37,7 +42,7 @@
                     }
                     else {
                         vm.showFailureRegistration = true;
-
+                        vm.submitting = false;
                         $timeout(function () {
                             vm.showFailureRegistration = false;
                         }, 4000);
@@ -45,11 +50,12 @@
                 })
                 .then(function (error) {
                     console.log('error' + error);
+                    vm.submitting = false;
                 });
-            console.log('this is the directive working');
         };
-    },
-    controllerAs: 'ctrlReg'
-};
-}]);
+    }]);
 })();
+
+
+
+
