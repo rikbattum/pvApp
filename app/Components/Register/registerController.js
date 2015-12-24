@@ -6,12 +6,6 @@
         var vm = this;
         vm.submitting = false;
 
-        function doLog() {
-            console.log('running contoller');
-        }
-
-        doLog();
-
         function getRandomIntInclusive(min, max) {
             var x = Math.floor(Math.random() * (max - min + 1)) + min;
             var y = Math.floor(Math.random() * (max - min + 1)) + min;
