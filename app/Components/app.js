@@ -14,20 +14,20 @@
                         }
                     })
                 .when('/myCarousel', {
-                    templateUrl: 'app/Components/Home/home.html',
+                    templateUrl: 'app/components/Home/home.html',
                     controller: 'basicController',
                     controllerAs: 'ctrlbasic'
                 })
                 .when('/register', {
-                    templateUrl: 'app/Components/Register/register.html'
+                    templateUrl: 'app/components/Register/register.html'
                 })
                 .when('/ruiters', {
-                    templateUrl: 'app/Components/Ruiters/ruiters.html',
+                    templateUrl: 'app/components/Ruiters/ruiters.html',
                     controller: 'RuiterController',
                     controllerAs: 'ctrlRuit'
                 })
                 .when('/zoekruiters', {
-                    templateUrl: 'app/Components/Ruiters/zoekRuiters.html',
+                    templateUrl: 'app/components/Ruiters/zoekRuiters.html',
                     controller: 'RuiterController',
                     controllerAs: 'ctrlRuit'
                 })
