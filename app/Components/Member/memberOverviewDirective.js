@@ -8,9 +8,9 @@
             scope: {ruiters: '='},
             templateUrl: 'app/components/Member/memberOverview.html',
             link: function (scope, element, attrs) {
-                element.onclick = function () {
+                element.bind('click', function() {
                     console.log('Click: ' + attrs);
-                };
+                });
             }
         };
     });

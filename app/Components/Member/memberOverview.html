@@ -1,19 +1,21 @@
 <!-- Specific view for Members for  memberOverviewDirective-->
 
-<!--test-->
-<!--{{ruiters.voornaam}}-->
-<!--{{ruiter.achternaam}}-->
-<!--{{ruiter.plaatsnamen}}-->
-<!--{{ruiter.paard1}}-->
-<!--{{ruiter.paard2}}-->
+<table class="table table-striped" width="80%">
 
+    <th scope="col" title="Voornaam">Voornaam</th>
+    <th scope="col" title="Achternaam">Achternaam</th>
+    <th scope="col" title="Plaats">Plaats</th>
+    <th scope="col" title="Paard">Paard</th>
+    <th scope="col" title="Paard">Paard</th>
+    <th scope="col" title="Paard">Paard</th>
 
-<h1> TEST </h1>
-
-<table class="box-table" width="100%">
-    <thead>
-    <tr>
-        <th ng-repeat="ruiter in ruiters">{{ruiter.voornaam}}</th>
+    <tr ng-repeat="ruiter in ruiters">
+        <td ng-bind="ruiter.voornaam"></td>
+        <td ng-bind="ruiter.achternaam"></td>
+        <td ng-bind="ruiter.plaats"></td>
+        <td ng-bind="ruiter.paard1"></td>
+        <td ng-bind="ruiter.paard2"></td>
+        <td ng-bind="ruiter.paard3"></td>
     </tr>
     </thead>
 </table>
