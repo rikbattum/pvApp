@@ -27,13 +27,13 @@
                         $timeout(function () {
                             vm.showSuccessRegistration = false;
                             $location.path('/');
-                        }, 1500);
+                        }, 1000);
                     }
                     else {
                         vm.showFailureRegistration = true;
                         $timeout(function () {
                             vm.showFailureRegistration = false;
-                        }, 1500);
+                        }, 1000);
                     }
                 });
         };
