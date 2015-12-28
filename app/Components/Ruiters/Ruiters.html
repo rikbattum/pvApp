@@ -10,29 +10,21 @@
     <br>
 
 
-    <table id="ruiters" class="table table-striped table-hover">
+    <!--<table id="ruiters" class="table table-striped table-hover">-->
 
-        <thead>
-        <th>naam</th>
-        <th>achternaam</th>
-        <th>plaats</th>
-        <th>paard</th>
-        <th>paard</th>
-        </thead>
+        <!--<thead>-->
+        <!--<th>naam</th>-->
+        <!--<th>achternaam</th>-->
+        <!--<th>plaats</th>-->
+        <!--<th>paard</th>-->
+        <!--<th>paard</th>-->
+        <!--</thead>-->
 
-        <tbody data-ng-repeat="ruiter in ctrlRuit.ruiters">
+        <div>
+        <member-overview-directive ruiters="ctrlRuit.ruiters"></member-overview-directive>
 
-        <tr>
-            <td> {{ruiter.voornaam}}</td>
-            <td> {{ruiter.achternaam}}</td>
-            <td> {{ruiter.plaatsnamen}}</td>
-            <td> {{ruiter.paard1}}</td>
-            <td> {{ruiter.paard2}}</td>
-
-        </tr>
-
-        </tbody>
-    </table>
+        </div>
+    <!--</table>-->
 
     <br>
 

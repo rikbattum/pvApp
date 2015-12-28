@@ -14,7 +14,7 @@
                         }
                     })
                 .when('/myCarousel', {
-                    templateUrl: 'app/components/Home/home.html',
+                    templateUrl: 'app/components/Home/home.html ',
                     controller: 'basicController',
                     controllerAs: 'ctrlbasic'
                 })

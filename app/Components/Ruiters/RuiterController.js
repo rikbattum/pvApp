@@ -19,7 +19,6 @@
                 })
                 .catch(function (error) {
                     console.log('get is error', error);
-
                 });
         };
 
