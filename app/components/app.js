@@ -36,6 +36,14 @@
                     controller: 'HorseController',
                     controllerAs: 'ctrlHorse'
                 })
+                .when('#/memberpage', {
+                    templateUrl: 'app/components/Memberpage/memberpage.html',
+                    controller: 'MemnberPageController',
+                    controllerAs: 'ctrlMP'
+                })
+
+
+
                 .otherwise({
                     redirectTo: '/'
                 });
