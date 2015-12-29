@@ -1,10 +1,11 @@
 (function () {
     'use strict';
 
-    angular.module('PVapp').controller('horseController', ['horseService', '$location', function (horseService, $location) {
+    angular.module('PVapp').controller('HorseController', ['horseService', '$location', function (horseService, $location) {
         var vm = this;
 
         vm.horsetlist = [];
+        vm.selectedHorse = 'jouw paard';
 
         vm.getHorses = function () {
 
@@ -17,8 +18,12 @@
                     console.log('error retrieving horses', error);
                 });
         };
-    }]);
 
+
+    vm.registerHorse = function registerHorse () {
+        alert ('registered')
+    }
+    }]);
 
 })();
 

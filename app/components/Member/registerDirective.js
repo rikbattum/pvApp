@@ -9,7 +9,7 @@
             controller: 'registerController',
             controllerAs: 'ctrlReg',
             bindToController: true,
-            templateUrl: 'app/components/Register/registerMember.html',
+            templateUrl: 'app/components/Member/registerMember.html',
             transclude: false
         };
     }]);

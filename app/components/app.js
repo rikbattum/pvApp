@@ -19,7 +19,7 @@
                     controllerAs: 'ctrlbasic'
                 })
                 .when('/register', {
-                    templateUrl: 'app/components/Register/register.html'
+                    templateUrl: 'app/components/Member/register.html'
                 })
                 .when('/ruiters', {
                     templateUrl: 'app/components/Ruiters/ruiters.html',
@@ -30,6 +30,11 @@
                     templateUrl: 'app/components/Ruiters/zoekRuiters.html',
                     controller: 'RuiterController',
                     controllerAs: 'ctrlRuit'
+                })
+                .when('/paarden', {
+                    templateUrl: 'app/components/Horses/registerHorse.html',
+                    controller: 'HorseController',
+                    controllerAs: 'ctrlHorse'
                 })
                 .otherwise({
                     redirectTo: '/'
