@@ -14,8 +14,8 @@
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Geslacht </label>
-        <select ng-model=ctrlHorse.geslacht>
-            <option value="Merry">Merry</option>
+        <select  class="selectpicker" ng-model=ctrlHorse.geslacht>
+            <option value="Merry" selected>Merry</option>
             <option value="Hengst">Hengst</option>
             </select>
     </div>
@@ -33,7 +33,7 @@
             <input type="text" class="form-control" id="overKarakter" ng-model=ctrlHorse.karakter>
         </div>
     </div>
-    div class="form-group">
+   <div class="form-group">
     <label class="col-sm-2 control-label">Sporten: </label>
     <div class="col-sm-8"
          style="padding-left: 15px; padding-bottom: 15px; padding-top: 5px; font-size: medium ">
@@ -80,7 +80,7 @@
         <div class="col-sm-offset-2 col-sm-8">
             <button class="btn btn-primary ladda-button" ladda="ctrlHorse.submitting" data-style="expand-right" type="submit">
                 <span class="ladda-label" ng-show="!ctrlHorse.submitting">Meld je aan</span>
-                <span class="ladda-label" ng-show=ctrlHorse.submitting">Bezig met aanmelden</span>
+                <span class="ladda-label" ng-show="ctrlHorse.submitting">Bezig met aanmelden</span>
             </button>
         </div>
     </div>
