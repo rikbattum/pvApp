@@ -12,6 +12,12 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-2 control-label">Afstamming</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="Afstamming" ng-model=ctrlHorse.Afstamming>
+        </div>
+    </div>
+    <div class="form-group">
         <label class="col-sm-2 control-label">Geslacht </label>
         <div class="col-sm-8">
             <select id="geslachtselect" name="geslachtselect" class="form-control" ng-model=ctrlHorse.geslacht>
@@ -51,10 +57,123 @@
             <input type="checkbox" id="Polo" ng-model=ctrlHorse.polo> Polo
         </div>
     </div>
-    <div class="form-group">
-        <label for="Sport_klasse" class="col-sm-2 control-label">Klasse</label>
+    <div class="form-group" ng-show="ctrlHorse.springen">
+        <label for="Spring_klasse" class="col-sm-2 control-label">Spring Klasse</label>
         <div class="col-sm-8">
-            <select id="Sport_klasse" class="form-control" ng-model=ctrlHorse.sportKlasse>
+            <select id="Spring_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseSpringen>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.dressuur">
+        <label for="Dressuur_klasse" class="col-sm-2 control-label">Dressuur Klasse</label>
+        <div class="col-sm-8">
+            <select id="Dressuur_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseEventing>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.eventing">
+        <label for="Eventing_klasse" class="col-sm-2 control-label">Eventing Klasse</label>
+        <div class="col-sm-8">
+            <select id="Eventing_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseDressuur>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.mennen">
+        <label for="Mennen_klasse" class="col-sm-2 control-label">Mennen Klasse</label>
+        <div class="col-sm-8">
+            <select id="Mennen_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseMennen>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.voltige">
+        <label for="Voltige_klasse" class="col-sm-2 control-label">Voltige Klasse</label>
+        <div class="col-sm-8">
+            <select id="Voltige_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseVoltige>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.western">
+        <label for="Western_klasse" class="col-sm-2 control-label">Western Klasse</label>
+        <div class="col-sm-8">
+            <select id="Western_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseWestern>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.showrijden">
+        <label for="Showrijden_klasse" class="col-sm-2 control-label">Showrijden Klasse</label>
+        <div class="col-sm-8">
+            <select id="Showrijden_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseShowrijden>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+        <div class="form-group" ng-show="ctrlHorse.naturalHorsemanship">
+        <label for="NaturalHorsemanShip_klasse" class="col-sm-2 control-label">NaturalHorsemanship Klasse</label>
+        <div class="col-sm-8">
+            <select id="NaturalHorsemanShip_klasse" class="form-control"
+                    ng-model=ctrlHorse.sportKlasseNaturalHorsemanShip>
+                <option>Recreatief</option>
+                <option>B</option>
+                <option>L</option>
+                <option>M</option>
+                <option>Z</option>
+                <option>ZZ</option>
+                <option>Nationaal</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group" ng-show="ctrlHorse.polo">
+        <label for="Polo_klasse" class="col-sm-2 control-label">Polo Klasse</label>
+        <div class="col-sm-8">
+            <select id="Polo_klasse" class="form-control" ng-model=ctrlHorse.sportKlassePolo>
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -81,15 +200,15 @@
         <div class="col-sm-offset-2 col-sm-8">
             <button class="btn btn-primary ladda-button" ladda="ctrlHorse.submitting" data-style="expand-right"
                     type="submit">
-                <span class="ladda-label" ng-show="!ctrlHorse.submitting">Meld je aan</span>
-                <span class="ladda-label" ng-show="ctrlHorse.submitting">Bezig met aanmelden</span>
+                <span class="ladda-label" ng-show="!ctrlHorse.submitting">Update paard</span>
+                <span class="ladda-label" ng-show="ctrlHorse.submitting">Bezig met vastleggen</span>
             </button>
         </div>
     </div>
 </form>
 <div id="alert handling">
-    <h2 class=" success" align="center" data-ng-show="ctrlHorse.showSuccessRegistration"> Je hebt je succesvol
-        aangemeld! </h2>
+    <h2 class=" success" align="center" data-ng-show="ctrlHorse.showSuccessRegistration"> Je paard
+        is aangemeld! </h2>
     <h2 class="error" align="center" data-ng-show="ctrlHorse.showFailureRegistration"> Oeps, dat werkte
         niet probeer het nog eens! </h2>
 </div>
