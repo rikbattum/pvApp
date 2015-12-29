@@ -3,7 +3,9 @@
 
     angular.module('PVapp').controller('HorseController', ['horseService', '$location', function (horseService, $location) {
         var vm = this;
-
+        vm.submitting = false;
+        vm.showSuccessRegistration;
+        vm.showFailureRegistration;
         vm.horsetlist = [];
         vm.selectedHorse = 'jouw paard';
 

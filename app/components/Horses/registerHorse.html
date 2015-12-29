@@ -37,23 +37,19 @@
     <label class="col-sm-2 control-label">Sporten: </label>
     <div class="col-sm-8"
          style="padding-left: 15px; padding-bottom: 15px; padding-top: 5px; font-size: medium ">
-        <input type="checkbox" id="Springen" ng-model=ctrlReg.newMember.springen> Springen
-        <input type="checkbox" id="Dressuur" ng-model=ctrlReg.newMember.dressuur> Dressuur
-        <input type="checkbox" id="Eventing" ng-model=ctrlReg.newMember.eventing> Eventing
-        <input type="checkbox" id="Mennen" ng-model=ctrlReg.newMember.mennen> Mennen
-        <input type="checkbox" id="Voltige" ng-model=ctrlReg.newMember.voltige> Voltige
-        <input type="checkbox" id="Western" ng-model=ctrlReg.newMember.western> Western
-        <input type="checkbox" id="Showrijden" ng-model=ctrlReg.newMember.showrijden> Showrijden
-        <input type="checkbox" id="Fokken" ng-model=ctrlReg.newMember.fokken> Fokken
-        <input type="checkbox" id="Natural_horsemanship" ng-model=ctrlReg.newMember.naturalHorsemanship> Natural
+        <input type="checkbox" id="Springen" ng-model=ctrlHorse.springen> Springen
+        <input type="checkbox" id="Dressuur" ng-model=ctrlHorse.dressuur> Dressuur
+        <input type="checkbox" id="Eventing" ng-model=ctrlHorse.eventing> Eventing
+        <input type="checkbox" id="Mennen" ng-model=ctrlHorse.mennen> Mennen
+        <input type="checkbox" id="Voltige" ng-model=ctrlHorse.voltige> Voltige
+        <input type="checkbox" id="Western" ng-model=ctrlHorse.western> Western
+        <input type="checkbox" id="Showrijden" ng-model=ctrlHorse.showrijden> Showrijden
+        <input type="checkbox" id="Fokken" ng-model=ctrlHorse.newMember.fokken> Fokken
+        <input type="checkbox" id="Natural_horsemanship" ng-model=ctrlHorse.naturalHorsemanship> Natural
         Horsemanship
-        <input type="checkbox" id="Polo" ng-model=ctrlReg.newMember.polo> Polo
+        <input type="checkbox" id="Polo" ng-model=ctrlHorse.polo> Polo
     </div>
     </div>
-
-
-
-
         <div class="form-group">
         <label for="Sport_klasse" class="col-sm-2 control-label">Klasse</label>
         <div class="col-sm-8">
@@ -80,18 +76,18 @@
                  style="height:150px; width:150px"/>
         </div>
     </div>
-  <div class="form-group" ng-show="!ctrlReg.showSuccessRegistrationgogi">
+  <div class="form-group" ng-show="!ctrlHorse.showSuccessRegistration">
         <div class="col-sm-offset-2 col-sm-8">
-            <button class="btn btn-primary ladda-button" ladda="ctrlReg.submitting" data-style="expand-right" type="submit">
-                <span class="ladda-label" ng-show="!ctrlReg.submitting">Meld je aan</span>
-                <span class="ladda-label" ng-show="ctrlReg.submitting">Bezig met aanmelden</span>
+            <button class="btn btn-primary ladda-button" ladda="ctrlHorse.submitting" data-style="expand-right" type="submit">
+                <span class="ladda-label" ng-show="!ctrlHorse.submitting">Meld je aan</span>
+                <span class="ladda-label" ng-show=ctrlHorse.submitting">Bezig met aanmelden</span>
             </button>
         </div>
     </div>
 </form>
 <div id="alert handling">
-    <h2 class=" success" align="center" data-ng-show="ctrlReg.showSuccessRegistration"> Je hebt je succesvol
+    <h2 class=" success" align="center" data-ng-show="ctrlHorse.showSuccessRegistration"> Je hebt je succesvol
         aangemeld! </h2>
-    <h2 class="error" align="center" data-ng-show="ctrlReg.showFailureRegistration"> Oeps, dat werkte
+    <h2 class="error" align="center" data-ng-show="ctrlHorse.showFailureRegistration"> Oeps, dat werkte
         niet probeer het nog eens! </h2>
 </div>
