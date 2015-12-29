@@ -396,3 +396,26 @@ ul.unstyled {
     display:flex;
 }
 
+/*tag boxes for member page */
+
+.tag-box  {
+    padding: 20px;
+    margin-bottom: 30px;
+    width:100%;
+}
+
+.tag-box-v6 {
+    background: #fafafa;
+    border: solid 1px #eee;
+}
+
+.equal, .equal > div[class*='col-'] {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex:1 1 auto;
+}
+
+
