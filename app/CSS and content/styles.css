@@ -137,19 +137,19 @@ ul.unstyled {
 }
 
 #slide1 {
-    background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/jump_medium_final.jpg) top center no-repeat;
+    background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/jump_medium_final.jpg) top center no-repeat;
 }
 
 #slide2 {
-    background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/horses_medium_final.jpg) top center no-repeat;
+    background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/horses_medium_final.jpg) top center no-repeat;
 }
 
 #slide3 {
-    background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/Esther_medium.jpg) top center no-repeat;
+    background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/Esther_medium.jpg) top center no-repeat;
 }
 
 #slide4 {
-    background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/Basje_medium.jpg) top center no-repeat;
+    background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/Basje_medium.jpg) top center no-repeat;
 }
 
 /* --------------------------------------
@@ -283,19 +283,19 @@ ul.unstyled {
     }
 
     #slide1 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/jump_small_final.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/jump_small_final.jpg) top center no-repeat;
     }
 
     #slide2 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/horses_small_final.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/horses_small_final.jpg) top center no-repeat;
     }
 
     #slide3 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/Esther_small.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/Esther_small.jpg) top center no-repeat;
     }
 
     #slide4 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/Basje_small.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/Basje_small.jpg) top center no-repeat;
     }
 
     .carousel-caption {
@@ -326,19 +326,19 @@ ul.unstyled {
     }
 
     #slide1 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/jump_big_final.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/jump_big_final.jpg) top center no-repeat;
     }
 
     #slide2 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/horses_big_final.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/horses_big_final.jpg) top center no-repeat;
     }
 
     #slide3 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/Esther_big.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/Esther_big.jpg) top center no-repeat;
     }
 
     #slide4 {
-        background: url(/Paardenvriendjes/app/CSS%20and%20content/Pictures/Caroussel/Basje_big.jpg) top center no-repeat;
+        background: url(/pvApp/app/CSS%20and%20content/Pictures/Caroussel/Basje_big.jpg) top center no-repeat;
     }
 
 }
