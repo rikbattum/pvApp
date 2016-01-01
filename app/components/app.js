@@ -19,7 +19,7 @@
                     controllerAs: 'ctrlbasic'
                 })
                 .when('/register', {
-                    templateUrl: 'app/components/Member/register.html'
+                    template: '<register-directive></register-directive>'
                 })
                 .when('/ruiters', {
                     templateUrl: 'app/components/Ruiters/ruiters.html',
