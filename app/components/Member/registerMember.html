@@ -48,14 +48,18 @@
         <div class="col-sm-8">
             <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Email"
                    maxlength="40" ng-model=ctrlReg.newMember.inputemail13 ng-required="true">
-            <span class="help-block" ng-show="registerForm.inputEmail3.$touched && registerForm.inputEmail3.$invalid ">Je email moet een @ bevatten</span>
+            <span class="help-block" ng-show="registerForm.inputEmail3.$touched && registerForm.inputEmail3.$invalid ">Je email moet een geldige opbouw hebben</span>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group"
+         ng-class="{ 'has-error' : registerForm.Geboortedatum.$invalid && registerForm.Geboortedatum.$touched}">>
         <label for="Geboortedatum" class="col-sm-2 control-label">Geboortedatum</label>
         <div class="col-sm-8">
-            <input type="date" class="form-control" id="Geboortedatum" ng-model=ctrlReg.newMember.geboortedatum
+            <input type="date" class="form-control" id="Geboortedatum" name="Geboortedatum"
+                   ng-model=ctrlReg.newMember.geboortedatum
+                   ng-pattern="ctrlReg.geboortedatumvalidatiepattern"
                    ng-required="true">
+            <span class="help-block" ng-show="registerForm.Geboortedatum.$touched && registerForm.Geboortedatum.$invalid ">Je geboortedatum moet een geldige datum zijn</span>
         </div>
     </div>
     <div class="form-group">
@@ -235,18 +239,12 @@
                  style="height:150px; width:150px"/>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-class="{ 'has-error' : registerForm.Password.$invalid && registerForm.Password.$touched}">
         <label for="Password" class="col-sm-2 control-label">Paswoord</label>
         <div class="col-sm-8">
-            <input type="password" class="form-control" id="Password" placeholder="Password" ng-required="true"
-                   maxlength="25" ng-model=ctrlReg.newMember.password>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="ConfirmPassword" class="col-sm-2 control-label">Confirm </label>
-        <div class="col-sm-8">
-            <input type="password" class="form-control" id="ConfirmPassword" placeholder="Bevestig Password"
-                   ng-required="true" maxlength="25">
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" ng-required="true"
+                   maxlength="25" ng-pattern="ctrlReg.passwordvalidatiepattern" ng-model=ctrlReg.newMember.password>
+            <span class="help-block" ng-show="registerForm.Password.$touched && registerForm.Password.$invalid ">Je paswoord moet minimaal 1 letter, 1 hoofletter en een nummer bevatten </span>
         </div>
     </div>
     <div class="form-group" ng-show="!ctrlReg.showSuccessRegistration">
@@ -258,9 +256,6 @@
         </div>
     </div>
 </form>
-
-
-<ttr>registerForm.$error = {{registerForm.$error}}</ttr>
 <div id="alert handling">
     <h2 class=" success" align="center" data-ng-show="ctrlReg.showSuccessRegistration"> Je hebt je succesvol
         aangemeld! </h2>
