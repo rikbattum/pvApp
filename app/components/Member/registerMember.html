@@ -6,44 +6,43 @@
     <div class="form-group">
         <label for="Voornaam" class="col-sm-2 control-label">Voornaam</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="Voornaam" placeholder="Voornaam" ng-required="required"
-                   maxlength="30" ng-model=ctrlReg.newMember.voornaam>
+            <input type="text" class="form-control" id="Voornaam" placeholder="Voornaam"
+                   maxlength="30" ng-model=ctrlReg.newMember.voornaam ng-required="true">
         </div>
     </div>
     <div class="form-group">
         <label for="Achternaam" class="col-sm-2 control-label">Achternaam</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="Achternaam" placeholder="Achternaam" ng-required="required"
-                   maxlength="30" ng-model=ctrlReg.newMember.achternaam>
+            <input type="text" class="form-control" id="Achternaam" placeholder="Achternaam"
+                   maxlength="30" ng-model=ctrlReg.newMember.achternaam ng-required="true">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Geslacht </label>
         <div class="col-sm-8">
-            <select id="geslachtselect" name="geslachtselect" class="form-control" ng-model=ctrlReg.geslacht required>
-                <option value="Vrouw">Vrouw</option>
-                <option value="Man">Man</option>
+            <select ng-init= "ctrlReg.geslacht=''";
+                    ng-options= 'select as geslachtkeuze for geslachtkeuze in ctrlReg.geslachtkeuze' id="geslachtselect" name="geslachtselect" class="form-control"
+                    ng-model=ctrlReg.geslacht required>
+            <option></option>
             </select>
         </div>
     </div>
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-8">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-required="required"
-                   maxlength="40" ng-model=ctrlReg.newMember.inputemail13>
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email"
+                   maxlength="40" ng-model=ctrlReg.newMember.inputemail13 ng-required="true">
         </div>
     </div>
     <div class="form-group">
         <label for="Geboortedatum" class="col-sm-2 control-label">Geboortedatum</label>
         <div class="col-sm-8">
-            <input type="date" class="form-control" id="Geboortedatum" ng-required="required"
-                   ng-model=ctrlReg.newMember.geboortedatum>
+            <input type="date" class="form-control" id="Geboortedatum" ng-model=ctrlReg.newMember.geboortedatum ng-required="true">
         </div>
     </div>
     <div class="form-group">
         <label for="plaatsnamen" class="col-sm-2 control-label">Woonplaats</label>
         <div class="col-sm-8">
-            <!-- <input type="text" class="form-control" id="Woonplaats" required="required" placeholder="Woonplaats" maxlength="30"> -->
             <select ng-init="ctrlReg.newMember.plaatsnamen=' '" ;
                     ng-options="select as plaatsnamen for plaatsnamen in ctrlReg.plaatsnamen" id="plaatsnamen"
                     class="form-control" ng-model=ctrlReg.newMember.plaatsnamen required>
@@ -201,8 +200,10 @@
             <input type="checkbox" id="samen_trainen" ng-model=ctrlReg.newMember.samenTrainen> Samen trainen
             <input type="checkbox" id="rijden_locatie" ng-model=ctrlReg.newMember.rijdenLocatie> Buitenritten maken
             <input type="checkbox" id="in_en_verkoop" ng-model=ctrlReg.newMember.inEnVerkoop> Paarden fokken
-            <input type="checkbox" id="Voorlichting" ng-model=ctrlReg.newMember.voorlichting> Voorlichten begeleiden ruiters
-            <input type="checkbox" id="voeding_gezondheid" ng-model=ctrlReg.newMember.voedingGezondheid> Voeding en gezondheid
+            <input type="checkbox" id="Voorlichting" ng-model=ctrlReg.newMember.voorlichting> Voorlichten begeleiden
+            ruiters
+            <input type="checkbox" id="voeding_gezondheid" ng-model=ctrlReg.newMember.voedingGezondheid> Voeding en
+            gezondheid
         </div>
     </div>
     <div class="form-group">
@@ -220,16 +221,15 @@
         <label for="Password" class="col-sm-2 control-label">Paswoord</label>
 
         <div class="col-sm-8">
-            <input type="password" class="form-control" id="Password" placeholder="Password" ng-required="required"
+            <input type="password" class="form-control" id="Password" placeholder="Password" ng-required="true"
                    maxlength="25" ng-model=ctrlReg.newMember.password>
         </div>
     </div>
     <div class="form-group">
         <label for="ConfirmPassword" class="col-sm-2 control-label">Confirm </label>
-
         <div class="col-sm-8">
             <input type="password" class="form-control" id="ConfirmPassword" placeholder="Bevestig Password"
-                   ng-required="required" maxlength="25">
+                   ng-required="true" maxlength="25">
         </div>
     </div>
     <div class="form-group" ng-show="!ctrlReg.showSuccessRegistration">
