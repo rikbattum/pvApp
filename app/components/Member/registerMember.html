@@ -3,7 +3,7 @@
 </div>
 <br>
 <form class="form-horizontal" role="form" name=registerForm id="registerForm"
-      ng-submit="ctrlReg.registerMember()">
+      ng-submit="registerForm.$valid && ctrlReg.registerMember()">
     <div class="form-group"
          ng-class="{ 'has-error' : registerForm.Voornaam.$invalid && registerForm.Voornaam.$touched}">
         <label for="Voornaam" class="col-sm-2 control-label">Voornaam</label>
@@ -14,7 +14,7 @@
                        ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/">
                 <span class="help-block"
                       ng-show="registerForm.Voornaam.$touched && registerForm.Voornaam.$error.required">Je voornaam is verplicht</span>
-                <span class="help-block" ng-show="registerForm.Voornaam.$dirty && registerForm.Voornaam.$error.pattern">Je voornaam moet 2-20 letters zijn</span>
+                <span class="help-block" ng-show="registerForm.Voornaam.$dirty && registerForm.Voornaam.$error.pattern">2-20 aaneengesloten letters</span>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
                    ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
             <span class="help-block"
                   ng-show="registerForm.Achternaam.$touched && registerForm.Achternaam.$error.required">Je achternaam is verplicht</span>
-            <span class="help-block" ng-show="registerForm.Achternaam.$dirty && registerForm.Achternaam.$error.pattern">Je achternaam moet 2-30 letters zijn</span>
+            <span class="help-block" ng-show="registerForm.Achternaam.$dirty && registerForm.Achternaam.$error.pattern">2-30 letters</span>
         </div>
     </div>
     <div class="form-group">
@@ -35,9 +35,9 @@
         <div class="col-sm-8">
             <select ng-model=ctrlReg.geslacht
                     ng-init="ctrlReg.geslacht=''"
-                    ng-options='select as geslachtkeuze for geslachtkeuze in ctrlReg.geslachtkeuze' id="geslachtkeuze"
-                    name="geslachtkeuze" class="form-control"
-                    required="required">
+                    ng-options='geslacht for geslacht in ctrlReg.geslachtkeuze' id="geslacht"
+                    name="geslacht" class="form-control"
+                    required>
                 <option></option>
             </select>
         </div>
@@ -48,25 +48,26 @@
         <div class="col-sm-8">
             <input type="email" class="form-control" id="inputEmail3" name="inputEmail3" placeholder="Email"
                    maxlength="40" ng-model=ctrlReg.newMember.inputemail13 ng-required="true">
-            <span class="help-block" ng-show="registerForm.inputEmail3.$touched && registerForm.inputEmail3.$invalid ">Je email moet een geldige opbouw hebben</span>
+            <span class="help-block" ng-show="registerForm.inputEmail3.$touched && registerForm.inputEmail3.$invalid ">ongeldig adres</span>
         </div>
     </div>
     <div class="form-group"
-         ng-class="{ 'has-error' : registerForm.Geboortedatum.$invalid && registerForm.Geboortedatum.$touched}">>
+         ng-class="{ 'has-error' : registerForm.Geboortedatum.$invalid && registerForm.Geboortedatum.$touched}">
         <label for="Geboortedatum" class="col-sm-2 control-label">Geboortedatum</label>
         <div class="col-sm-8">
             <input type="date" class="form-control" id="Geboortedatum" name="Geboortedatum"
                    ng-model=ctrlReg.newMember.geboortedatum
                    ng-pattern="ctrlReg.geboortedatumvalidatiepattern"
                    ng-required="true">
-            <span class="help-block" ng-show="registerForm.Geboortedatum.$touched && registerForm.Geboortedatum.$invalid ">Je geboortedatum moet een geldige datum zijn</span>
+            <span class="help-block"
+                  ng-show="registerForm.Geboortedatum.$touched && registerForm.Geboortedatum.$invalid">ongeldige datum</span>
         </div>
     </div>
     <div class="form-group">
         <label for="plaatsnamen" class="col-sm-2 control-label">Woonplaats</label>
         <div class="col-sm-8">
             <select ng-init="ctrlReg.newMember.plaatsnamen=' '" ;
-                    ng-options="select as plaatsnamen for plaatsnamen in ctrlReg.plaatsnamen" id="plaatsnamen"
+                    ng-options="plaatsnamen for plaatsnamen in ctrlReg.plaatsnamen" id="plaatsnamen"
                     name="plaatsnamen"
                     class="form-control" ng-model=ctrlReg.newMember.plaatsnamen
                     required="required">
@@ -78,43 +79,83 @@
         <label class="col-sm-2 control-label">Over mij</label>
         <div class="col-sm-8">
             <input type="text" class="form-control" id="overMij" ng-model=ctrlReg.newMember.overMij
-                   placeholder="Jij en je paard in 1 zin" maxlength="150">
+                   placeholder="Jij in 1 zin" maxlength="150">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Mijn paarden</label>
         <div class="col-sm-8">
             <div class="divScroll">
-                <input type="text" class="form-control" name="Paard_1" placeholder="Jouw paard"
-                       maxlength="30"
-                       ng-model=ctrlReg.newMember.paard1>
-                <input ng-show="registerForm.Paard_1.$touched" type="text" class="form-control"
-                       name="Paard_2" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard2>
-                <input ng-show="registerForm.Paard_2.$touched" type="text" class="form-control"
-                       name="Paard_3" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard3>
-                <input ng-show="registerForm.Paard_3.$touched" type="text" class="form-control"
-                       name="Paard_4" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard4 data-ng-show="ctrlReg.moreHorses2">
-                <input ng-show="registerForm.Paard_4.$touched" type="text" class="form-control"
-                       name="Paard_5" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard5>
-                <input ng-show="registerForm.Paard_5.$touched" type="text" class="form-control"
-                       name="Paard_6" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard6>
-                <input ng-show="registerForm.Paard_6.$touched" type="text" class="form-control"
-                       name="Paard_7" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard7>
-                <input ng-show="registerForm.Paard_7.$touched" type="text" class="form-control"
-                       name="Paard_8" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard8>
-                <input ng-show="registerForm.Paard_8.$touched" type="text" class="form-control"
-                       name="Paard_9" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard9>
-                <input ng-show="registerForm.Paard_9.$touched" type="text" class="form-control"
-                       name="Paard_10" placeholder="Jouw paard" maxlength="30"
-                       ng-model=ctrlReg.newMember.paard10>
+                <div ng-class="{'has-error' : registerForm.Paard_1.$invalid}">
+                    <input type="text" class="form-control" id="Paard_1" name="Paard_1" placeholder="Jouw paard"
+                           maxlength="30" ng-model=ctrlReg.newMember.paard1
+                           ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_1.$invalid &&
+                          ng-show=registerForm.Paard_1.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_2.$invalid}">
+                    <input ng-show="registerForm.Paard_1.$touched" type="text" class="form-control"
+                           name="Paard_2" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard2 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_2.$invalid &&
+                          ng-show=registerForm.Paard_2.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_3.$invalid}">
+                    <input ng-show="registerForm.Paard_2.$touched" type="text" class="form-control"
+                           name="Paard_3" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard3 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_4.$invalid}">
+                    <span class="help-block" ng-show=registerForm.Paard_3.$invalid &&
+                          ng-show=registerForm.Paard_3.touched">2-30 letters</span>
+                    <input ng-show="registerForm.Paard_3.$touched" type="text" class="form-control"
+                           name="Paard_4" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard4 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_4.$invalid &&
+                          ng-show=registerForm.Paard_4.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_5.$invalid}">
+                    <input ng-show="registerForm.Paard_4.$touched" type="text" class="form-control"
+                           name="Paard_5" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard5 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_5.$invalid &&
+                          ng-show=registerForm.Paard_5.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_6.$invalid}">
+                    <input ng-show="registerForm.Paard_5.$touched" type="text" class="form-control"
+                           name="Paard_6" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard6 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_6.$invalid &&
+                          ng-show=registerForm.Paard_6.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_7.$invalid}">
+                    <input ng-show="registerForm.Paard_6.$touched" type="text" class="form-control"
+                           name="Paard_7" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard7 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_7.$invalid &&
+                          ng-show=registerForm.Paard_7.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_8.$invalid}">
+                    <input ng-show="registerForm.Paard_7.$touched" type="text" class="form-control"
+                           name="Paard_8" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard8 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_8.$invalid &&
+                          ng-show=registerForm.Paard_8.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_9.$invalid}">
+                    <input ng-show="registerForm.Paard_8.$touched" type="text" class="form-control"
+                           name="Paard_9" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard9 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                    <span class="help-block" ng-show=registerForm.Paard_9.$invalid &&
+                          ng-show=registerForm.Paard_9.touched">2-30 letters</span>
+                </div>
+                <div ng-class="{'has-error' : registerForm.Paard_10.$invalid}">
+                    <input ng-show="registerForm.Paard_9.$touched" type="text" class="form-control"
+                           name="Paard_10" placeholder="Jouw paard" maxlength="30"
+                           ng-model=ctrlReg.newMember.paard10 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                <span class="help-block" ng-show=registerForm.Paard_10.$invalid &&
+                      ng-show=registerForm.Paard_19.touched">2-30 letters</span>
+                </div>
             </div>
         </div>
     </div>
@@ -234,15 +275,17 @@
             <input type="file" id="Profielfoto" class="form-control">
             <br>
             <img id=profilepicture class="img-responsive"
-                 src="app\CSS and content\Pictures\Basic profile pic\base_profile_pic.jpg"
+                 src="app\CSS and content\Pictures\Basic profile pic\ruiter\base_profile_pic.jpg"
                  alt=""
                  style="height:150px; width:150px"/>
         </div>
     </div>
-    <div class="form-group" ng-class="{ 'has-error' : registerForm.Password.$invalid && registerForm.Password.$touched}">
+    <div class="form-group"
+         ng-class="{ 'has-error' : registerForm.Password.$invalid && registerForm.Password.$touched}">
         <label for="Password" class="col-sm-2 control-label">Paswoord</label>
         <div class="col-sm-8">
-            <input type="password" class="form-control" id="Password" name="Password" placeholder="Password" ng-required="true"
+            <input type="password" class="form-control" id="Password" name="Password" placeholder="Paswoord"
+                   ng-required="true"
                    maxlength="25" ng-pattern="ctrlReg.passwordvalidatiepattern" ng-model=ctrlReg.newMember.password>
             <span class="help-block" ng-show="registerForm.Password.$touched && registerForm.Password.$invalid ">Je paswoord moet minimaal 1 letter, 1 hoofletter en een nummer bevatten </span>
         </div>
