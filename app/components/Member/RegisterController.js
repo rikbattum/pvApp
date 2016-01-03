@@ -20,11 +20,12 @@
             var memberid = Math.floor(x * y / z);
             return (memberid);
         }
+
         vm.registerMember = function () {
             vm.submitting = true;
             vm.newMember.memberId = getRandomIntInclusive(0, 100000000000000);
             $log.log('this is memberId', vm.newMember.memberId);
-           memberService.postNewMember(vm.newMember)
+            memberService.postNewMember(vm.newMember)
                 .then(function (data) {
                     $log.log('post succesfull', data, data.status);
                     if (data.status === 204) {
