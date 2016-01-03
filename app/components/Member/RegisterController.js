@@ -25,22 +25,22 @@
             vm.submitting = true;
             vm.newMember.memberId = getRandomIntInclusive(0, 100000000000000);
             $log.log('this is memberId', vm.newMember.memberId);
+
             memberService.postNewMember(vm.newMember)
                 .then(function (data) {
                     $log.log('post succesfull');
-                    vm.showSuccessRegistration = true;
+                    vm.showSuccessRegistration = true;          // show succes message
                     $timeout(function () {
-                        vm.showSuccessRegistration = false;
-                        $location.path('/');
-                    }, 1000)
-                    //}
-                        .catch(function (error) {
-                            vm.showFailureRegistration = true;
-                            $timeout(function () {
-                                vm.showFailureRegistration = false;
-                                $log.log(error);
-                            }, 1000);
-                        });
+                        vm.showSuccessRegistration = false;     // disables succes message after timeout
+                        $location.path('/');                    // routes to home on success after timeout
+                    }, 1000);
+                }, function (error) {
+                    vm.showFailureRegistration = true;
+                    $timeout(function () {
+                        vm.showFailureRegistration = false;     // show error message
+                        $log.log(error);
+                    }, 2000);
+                    vm.submitting = false;                 // handels the button to become available again.
                 });
         };
     }]);

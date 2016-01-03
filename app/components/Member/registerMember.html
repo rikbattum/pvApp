@@ -167,7 +167,7 @@
         <label class="col-sm-2 control-label">Sporten: </label>
         <div class="col-sm-8"
              style="padding-left: 15px; padding-bottom: 15px; padding-top: 5px; font-size: medium ">
-            <input type="checkbox" id="Springen" ng-model=ctrlReg.newMember.springen> Springen
+            <input type="checkbox" id="Springen" name='Springen' ng-model=ctrlReg.newMember.springen> Springen
             <input type="checkbox" id="Dressuur" ng-model=ctrlReg.newMember.dressuur> Dressuur
             <input type="checkbox" id="Eventing" ng-model=ctrlReg.newMember.eventing> Eventing
             <input type="checkbox" id="Mennen" ng-model=ctrlReg.newMember.mennen> Mennen
@@ -192,7 +192,7 @@
         <label for="Spring_klasse" class="col-sm-2 control-label">Spring Klassen</label>
         <div class="col-sm-8">
             <select id="Spring_klasse" name="Spring_klasse" class="form-control" ng-model=ctrlReg.sportKlasseSpringen
-                    required="ctrlReg.newMember.springen">
+                    ng-required="ctrlReg.newMember.springen">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -210,7 +210,7 @@
         <div class="col-sm-8">
             <select id="Dressuur_klasse" name="Dressuur_klasse" class="form-control"
                     ng-model=ctrlReg.sportKlasseDressuur
-                    required="ctrlReg.newMember.dressuur">
+                    ng-required="ctrlReg.newMember.dressuur">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -228,7 +228,7 @@
         <div class="col-sm-8">
             <select id="eventing_klasse" name="eventing_klasse" class="form-control"
                     ng-model=ctrlReg.sportKlasseEventing
-                    required="ctrlReg.newMember.eventing">
+                    ng-required="ctrlReg.newMember.eventing">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -245,7 +245,7 @@
         <label for="Mennen_klasse" class="col-sm-2 control-label">Mennen Klassen</label>
         <div class="col-sm-8">
             <select id="Mennen_klasse" name="Mennen_klasse" class="form-control" ng-model=ctrlReg.sportKlasseMennen
-                    required="ctrlReg.newMember.mennen">
+                    ng-required="ctrlReg.newMember.mennen">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -262,7 +262,7 @@
         <label for="Voltige_klasse" class="col-sm-2 control-label">Voltige Klassen</label>
         <div class="col-sm-8">
             <select id="Voltige_klasse" name="Voltige_klasse" class="form-control" ng-model=ctrlReg.sportKlasseVoltige
-                    required="ctrlReg.newMember.voltige">
+                    ng-required="ctrlReg.newMember.voltige">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
