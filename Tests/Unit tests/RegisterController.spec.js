@@ -78,6 +78,8 @@
         var registerController;
         var log;
         var membService;
+        var $httpBackend;
+        var $rootScope;
         var testregistratieMember = [{
             'achternaam': 'van Battum',
             'dressuur': 'true',
@@ -96,44 +98,38 @@
             'wedstrijdsport': 'true'
         }];
 
-        beforeEach(inject(function ($controller, $log, memberService) {
+        beforeEach(inject(function ($controller, $log, memberService, _$httpBackend_, _$rootScope_) {
             registerController = $controller('RegisterController');
             log = $log;
             membService = memberService;
-            spyOn(membService, 'postNewMember').and.callFake(function () {
-                return 'data.status === 204';
-            });
+            $httpBackend = _$httpBackend_;
+            $rootScope = _$rootScope_;
         }));
-
 
         it('should be able to handle a succesfull registration', function () {
 
 
             var successFn = jasmine.createSpy('successFn');
             var failureFn = jasmine.createSpy('failureFn');
-            //
-            //registerController.newMember = testregistratieMember;
-            //registerController.registerMember(testregistratieMember);
-            .then(successFn)
+            registerController.newMember = testregistratieMember;
+            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond();
+            membService.postNewMember(testregistratieMember)
+                .then(successFn)
                 .catch(failureFn);
-
-
-            $rootScope.$digest();
             $httpBackend.flush();
+            $rootScope.$digest();
 
-// For failure case test, switch these!
+//            expect(successFn).toHaveBeenCalled();
+//            expect(failureFn).not.toHaveBeenCalled();
+            expect(registerController.newMember).toEqual(testregistratieMember);
             expect(successFn).toHaveBeenCalled();
-            expect(failureFn).not.toHaveBeenCalled();
+            expect(registerController.newMember).toEqual(testregistratieMember);
+        });
 
 
-
-
-            ct
-            expect(membService.postNewMember).toHaveBeenCalledWith(testregistratieMember);
-
+        it('should be able to handle a failure registration', function () {
         });
     });
-
 })();
 
 

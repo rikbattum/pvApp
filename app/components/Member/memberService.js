@@ -2,7 +2,7 @@
 
 // This service should handle all front-end CRUD operations for the Jax-RS member service.
 angular.module('PVapp')
-    .factory('memberService', function ($http, PVConfig) {
+    .factory('memberService', function ($http, PVConfig, $log) {
 
         var baseUrlMember = PVConfig.baseUrl + 'Member';
 
@@ -16,10 +16,10 @@ angular.module('PVapp')
                 }
             })
                 .success(function (res) {
-                    console.log('reached get statement Members');
+                    $log.log('reached get statement Members');
                 })
                 .error(function (error, status) {
-                    console.error('get status bad', error);
+                    $log.error('get status bad', error);
                 });
         };
 
@@ -27,7 +27,7 @@ angular.module('PVapp')
 
             return $http.post(baseUrlMember, newMember)
                 .success(function (data, status) {
-                    console.log('reached post statement');
+                    $log.log ('Post success, status: ' + status );
                 })
                 .error(function (error, status, x) {
                     console.log('This is the error:' + error, status, x);

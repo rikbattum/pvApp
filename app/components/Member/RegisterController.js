@@ -27,20 +27,20 @@
             $log.log('this is memberId', vm.newMember.memberId);
             memberService.postNewMember(vm.newMember)
                 .then(function (data) {
-                    $log.log('post succesfull', data, data.status);
-                    if (data.status === 204) {
-                        vm.showSuccessRegistration = true;
-                        $timeout(function () {
-                            vm.showSuccessRegistration = false;
-                            $location.path('/');
-                        }, 1000);
-                    }
-                    else {
-                        vm.showFailureRegistration = true;
-                        $timeout(function () {
-                            vm.showFailureRegistration = false;
-                        }, 1000);
-                    }
+                    $log.log('post succesfull');
+                    vm.showSuccessRegistration = true;
+                    $timeout(function () {
+                        vm.showSuccessRegistration = false;
+                        $location.path('/');
+                    }, 1000)
+                    //}
+                        .catch(function (error) {
+                            vm.showFailureRegistration = true;
+                            $timeout(function () {
+                                vm.showFailureRegistration = false;
+                                $log.log(error);
+                            }, 1000);
+                        });
                 });
         };
     }]);
