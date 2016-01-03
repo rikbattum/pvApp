@@ -54,7 +54,7 @@
         });
 
         it('should have plaatsnamen available', function () {
-
+            expect(registerController.plaatsnamen).toContain('Hilversum');
         });
 
         it('should be able to generate and log memberID', function () {
@@ -80,6 +80,7 @@
         var membService;
         var $httpBackend;
         var $rootScope;
+        var $timeout;
         var testregistratieMember = [{
             'achternaam': 'van Battum',
             'dressuur': 'true',
@@ -98,36 +99,77 @@
             'wedstrijdsport': 'true'
         }];
 
-        beforeEach(inject(function ($controller, $log, memberService, _$httpBackend_, _$rootScope_) {
+        beforeEach(inject(function ($controller, $log, memberService, _$httpBackend_, _$rootScope_, _$timeout_) {
             registerController = $controller('RegisterController');
             log = $log;
             membService = memberService;
             $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
+            $timeout = _$timeout_;
         }));
 
-        it('should be able to handle a succesfull registration', function () {
-
-
+        it('should be able to handle a succesfull registration and pass object', function () {
             var successFn = jasmine.createSpy('successFn');
             var failureFn = jasmine.createSpy('failureFn');
             registerController.newMember = testregistratieMember;
-            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond();
+            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond(204);
             membService.postNewMember(testregistratieMember)
                 .then(successFn)
                 .catch(failureFn);
             $httpBackend.flush();
             $rootScope.$digest();
-
-//            expect(successFn).toHaveBeenCalled();
-//            expect(failureFn).not.toHaveBeenCalled();
             expect(registerController.newMember).toEqual(testregistratieMember);
             expect(successFn).toHaveBeenCalled();
+            expect(failureFn).not.toHaveBeenCalled();
             expect(registerController.newMember).toEqual(testregistratieMember);
         });
 
+        it('should be able to show a temporary success message', function () {
+            registerController.alertVisible = false;
+            registerController.newMember = testregistratieMember;
+            spyOn(registerController, 'registerMember').and.callThrough();
+            registerController.registerMember(testregistratieMember);
+            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond(204);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            expect(registerController.showSuccessRegistration).toBeTruthy();
+            expect(registerController.showFailureRegistration).toBeFalsy();
+            $timeout.flush();
+            expect(registerController.showSuccessRegistration).toBeFalsy();
+            expect(registerController.showFailureRegistration).toBeFalsy();
+        });
+
+        it('should be able to switch to home after registration', function () {
+
+        });
 
         it('should be able to handle a failure registration', function () {
+            var successFn = jasmine.createSpy('successFn');
+            var failureFn = jasmine.createSpy('failureFn');
+            registerController.newMember = testregistratieMember;
+            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond(500);
+            membService.postNewMember(testregistratieMember)
+                .then(successFn)
+                .catch(failureFn);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            expect(successFn).not.toHaveBeenCalled();
+            expect(failureFn).toHaveBeenCalled();
+        });
+
+        it('should be able to show a temporary failure message', function () {
+            registerController.alertVisible = false;
+            registerController.newMember = testregistratieMember;
+            spyOn(registerController, 'registerMember').and.callThrough();
+            registerController.registerMember(testregistratieMember);
+            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond(500);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            expect(registerController.showSuccessRegistration).toBeFalsy();
+            expect(registerController.showFailureRegistration).toBeTruthy();
+            $timeout.flush();
+            expect(registerController.showSuccessRegistration).toBeFalsy();
+            expect(registerController.showFailureRegistration).toBeFalsy();
         });
     });
 })();
