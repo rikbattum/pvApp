@@ -22,11 +22,14 @@ module.exports = function (config) {
             'app/bower_components/angular/angular-loader.js',
             'app/bower_components/angular-mocks/angular-mocks.js',
             'app/bower_components/angular-route/angular-route.js',
+            'app/bower_components/angular-ladda/dist/angular-ladda.min.js',
             'app/components/app.js',
             'app/components/Home/mainController.js',
             'app/components/Ruiters/ruiterController.js',
             'app/components/Ruiters/ruiterController.js',
             'app/Register/registerDirective.js',
+            'app/components/Member/RegisterController.js',
+            'app/components/Member/memberService.js',
             'Tests/e2e-tests/*.js',
             'Tests/Unit tests/*.js'],
 
@@ -47,6 +50,5 @@ module.exports = function (config) {
             outputFile: 'test_out/unit.xml',
             suite: 'unit'
         }
-
     });
 };

@@ -1,3 +1,7 @@
+<!-- Form validation testing with this statement -->
+<!--<ttr> {{registerForm.$error}} </ttr>-->
+<!--<br>-->
+
 <div class="col-lg-offset-2">
     <h1> Paardenvriend in 3 minuten </h1>
 </div>
@@ -11,10 +15,10 @@
             <div class="controls">
                 <input type="text" class="form-control" id="Voornaam" name="Voornaam" placeholder="Voornaam"
                        maxlength="20" ng-model=ctrlReg.newMember.voornaam ng-required="true"
-                       ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/">
+                       ng-pattern="ctrlReg.shortnamepattern">
                 <span class="help-block"
                       ng-show="registerForm.Voornaam.$touched && registerForm.Voornaam.$error.required">Je voornaam is verplicht</span>
-                <span class="help-block" ng-show="registerForm.Voornaam.$dirty && registerForm.Voornaam.$error.pattern">2-20 aaneengesloten letters</span>
+                <span class="help-block" ng-show="registerForm.Voornaam.$dirty && registerForm.Voornaam.$error.pattern">2-20 aaneengesloten letters, cijfers, -_.</span>
             </div>
         </div>
     </div>
@@ -24,10 +28,10 @@
         <div class="col-sm-8">
             <input type="text" class="form-control" id="Achternaam" name="Achternaam" placeholder="Achternaam"
                    maxlength="30" ng-model=ctrlReg.newMember.achternaam ng-required="true"
-                   ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                   ng-pattern="ctrlReg.longnamepattern">
             <span class="help-block"
                   ng-show="registerForm.Achternaam.$touched && registerForm.Achternaam.$error.required">Je achternaam is verplicht</span>
-            <span class="help-block" ng-show="registerForm.Achternaam.$dirty && registerForm.Achternaam.$error.pattern">2-30 letters</span>
+            <span class="help-block" ng-show="registerForm.Achternaam.$dirty && registerForm.Achternaam.$error.pattern">2-30 letters, cijfers, -_.</span>
         </div>
     </div>
     <div class="form-group">
@@ -89,72 +93,72 @@
                 <div ng-class="{'has-error' : registerForm.Paard_1.$invalid}">
                     <input type="text" class="form-control" id="Paard_1" name="Paard_1" placeholder="Jouw paard"
                            maxlength="30" ng-model=ctrlReg.newMember.paard1
-                           ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_1.$invalid &&
-                          registerForm.Paard_1.$touched">2-30 letters</span>
+                          registerForm.Paard_1.$touched">2-30 letters, , cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_2.$invalid}">
                     <input ng-show="registerForm.Paard_1.$touched" type="text" class="form-control"
                            name="Paard_2" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard2 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard2 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_2.$invalid &&
-                          registerForm.Paard_2.$touched">2-30 letters</span>
+                          registerForm.Paard_2.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_3.$invalid}">
                     <input ng-show="registerForm.Paard_2.$touched" type="text" class="form-control"
                            name="Paard_3" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard3 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard3 ng-pattern="ctrlReg.longnamepattern">
                      <span class="help-block" ng-show="registerForm.Paard_3.$invalid &&
-                           registerForm.Paard_3.$touched">2-30 letters</span>
+                           registerForm.Paard_3.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_4.$invalid}">
                     <input ng-show="registerForm.Paard_3.$touched" type="text" class="form-control"
                            name="Paard_4" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard4 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard4 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_4.$invalid &&
-                          registerForm.Paard_4.$touched">2-30 letters</span>
+                          registerForm.Paard_4.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_5.$invalid}">
                     <input ng-show="registerForm.Paard_4.$touched" type="text" class="form-control"
                            name="Paard_5" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard5 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard5 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_5.$invalid &&
-                          registerForm.Paard_5.$touched">2-30 letters</span>
+                          registerForm.Paard_5.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_6.$invalid}">
                     <input ng-show="registerForm.Paard_5.$touched" type="text" class="form-control"
                            name="Paard_6" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard6 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard6 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_6.$invalid &&
-                          registerForm.Paard_6.$touched">2-30 letters</span>
+                          registerForm.Paard_6.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_7.$invalid}">
                     <input ng-show="registerForm.Paard_6.$touched" type="text" class="form-control"
                            name="Paard_7" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard7 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard7 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_7.$invalid &&
-                          registerForm.Paard_7.$touched">2-30 letters</span>
+                          registerForm.Paard_7.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_8.$invalid}">
                     <input ng-show="registerForm.Paard_7.$touched" type="text" class="form-control"
                            name="Paard_8" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard8 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard8 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_8.$invalid &&
-                          registerForm.Paard_8.$touched">2-30 letters</span>
+                          registerForm.Paard_8.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_9.$invalid}">
                     <input ng-show="registerForm.Paard_8.$touched" type="text" class="form-control"
                            name="Paard_9" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard9 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard9 ng-pattern="ctrlReg.longnamepattern">
                     <span class="help-block" ng-show="registerForm.Paard_9.$invalid &&
-                          registerForm.Paard_9.$touched">2-30 letters</span>
+                          registerForm.Paard_9.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
                 <div ng-class="{'has-error' : registerForm.Paard_10.$invalid}">
                     <input ng-show="registerForm.Paard_9.$touched" type="text" class="form-control"
                            name="Paard_10" placeholder="Jouw paard" maxlength="30"
-                           ng-model=ctrlReg.newMember.paard10 ng-pattern="/^[a-zA-Z][a-zA-Z0-9-_\.\s]{1,30}$/">
+                           ng-model=ctrlReg.newMember.paard10 ng-pattern="ctrlReg.longnamepattern">
                 <span class="help-block" ng-show="registerForm.Paard_10.$invalid &&
-                           registerForm.Paard_19.$touched">2-30 letters</span>
+                           registerForm.Paard_19.$touched">2-30 letters, cijfers, -_.</span>
                 </div>
             </div>
         </div>
@@ -183,7 +187,8 @@
             <input type="checkbox" id="Vossenjacht" ng-model=ctrlReg.newMember.vossenjacht> Vossenjacht
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlReg.newMember.springen" ng-class="{'has-error' : registerForm.Spring_klasse.$invalid && registerForm.$submitted}">
+    <div class="form-group" ng-show="ctrlReg.newMember.springen"
+         ng-class="{'has-error' : registerForm.Spring_klasse.$invalid && registerForm.$submitted}">
         <label for="Spring_klasse" class="col-sm-2 control-label">Spring Klassen</label>
         <div class="col-sm-8">
             <select id="Spring_klasse" name="Spring_klasse" class="form-control" ng-model=ctrlReg.sportKlasseSpringen
@@ -199,10 +204,12 @@
             <span class="help-block" ng-show="registerForm.$submitted && registerForm.Spring_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlReg.newMember.dressuur" ng-class="{'has-error' : registerForm.Dressuur_klasse.$invalid && registerForm.$submitted}">
+    <div class="form-group" ng-show="ctrlReg.newMember.dressuur"
+         ng-class="{'has-error' : registerForm.Dressuur_klasse.$invalid && registerForm.$submitted}">
         <label for="Dressuur_klasse" class="col-sm-2 control-label">Dressuur Klassen</label>
         <div class="col-sm-8">
-            <select id="Dressuur_klasse" name="Dressuur_klasse" class="form-control" ng-model=ctrlReg.sportKlasseDressuur
+            <select id="Dressuur_klasse" name="Dressuur_klasse" class="form-control"
+                    ng-model=ctrlReg.sportKlasseDressuur
                     required="ctrlReg.newMember.dressuur">
                 <option>Recreatief</option>
                 <option>B</option>
@@ -215,10 +222,12 @@
             <span class="help-block" ng-show="registerForm.$submitted && registerForm.Dressuur_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlReg.newMember.eventing" ng-class="{'has-error' : registerForm.Dressuur_klasse.$invalid && registerForm.$submitted}">
+    <div class="form-group" ng-show="ctrlReg.newMember.eventing"
+         ng-class="{'has-error' : registerForm.Dressuur_klasse.$invalid && registerForm.$submitted}">
         <label for="Dressuur_klasse" class="col-sm-2 control-label">Eventing Klassen</label>
         <div class="col-sm-8">
-            <select id="eventing_klasse" name="eventing_klasse" class="form-control" ng-model=ctrlReg.sportKlasseEventing
+            <select id="eventing_klasse" name="eventing_klasse" class="form-control"
+                    ng-model=ctrlReg.sportKlasseEventing
                     required="ctrlReg.newMember.eventing">
                 <option>Recreatief</option>
                 <option>B</option>
@@ -231,7 +240,8 @@
             <span class="help-block" ng-show="registerForm.$submitted && registerForm.Dressuur_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlReg.newMember.mennen" ng-class="{'has-error' : registerForm.Mennen_klasse.$invalid && registerForm.$submitted}">
+    <div class="form-group" ng-show="ctrlReg.newMember.mennen"
+         ng-class="{'has-error' : registerForm.Mennen_klasse.$invalid && registerForm.$submitted}">
         <label for="Mennen_klasse" class="col-sm-2 control-label">Mennen Klassen</label>
         <div class="col-sm-8">
             <select id="Mennen_klasse" name="Mennen_klasse" class="form-control" ng-model=ctrlReg.sportKlasseMennen
@@ -247,10 +257,11 @@
             <span class="help-block" ng-show="registerForm.$submitted && registerForm.Mennen_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlReg.newMember.voltige" ng-class="{'has-error' : registerForm.Voltige_klasse.$invalid && registerForm.$submitted}">
+    <div class="form-group" ng-show="ctrlReg.newMember.voltige"
+         ng-class="{'has-error' : registerForm.Voltige_klasse.$invalid && registerForm.$submitted}">
         <label for="Voltige_klasse" class="col-sm-2 control-label">Voltige Klassen</label>
         <div class="col-sm-8">
-            <select id="Voltige_klasse"  name="Voltige_klasse" class="form-control" ng-model=ctrlReg.sportKlasseVoltige
+            <select id="Voltige_klasse" name="Voltige_klasse" class="form-control" ng-model=ctrlReg.sportKlasseVoltige
                     required="ctrlReg.newMember.voltige">
                 <option>Recreatief</option>
                 <option>B</option>

@@ -6,7 +6,7 @@
         return {
             restrict: 'EA',
             scope: true,
-            controller: 'registerController',
+            controller: 'RegisterController',
             controllerAs: 'ctrlReg',
             bindToController: true,
             templateUrl: 'app/components/Member/registerMember.html',
