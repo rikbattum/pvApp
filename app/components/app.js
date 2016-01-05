@@ -3,7 +3,7 @@
 
     // Declare app level module which depends on views, and components
     var PVapp = angular.module('PVapp', [
-        'ngRoute', 'angular-ladda'
+        'ngRoute', 'angular-ladda', 'ngTable'
     ]).
         config(['$routeProvider', function ($routeProvider) {
             $routeProvider
@@ -40,6 +40,11 @@
                     templateUrl: 'app/components/Memberpage/memberpage.html',
                     controller: 'MemberPageController',
                     controllerAs: 'ctrlMP'
+                })
+                .when('/paspoort', {
+                    templateUrl: 'app/components/Horses/paspoort.html',
+                    controller: 'PaspoortController',
+                    controllerAs: 'ctrlPP'
                 })
                 .otherwise({
                     redirectTo: '/'

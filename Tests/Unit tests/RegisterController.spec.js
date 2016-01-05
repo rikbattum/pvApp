@@ -163,6 +163,7 @@
             $rootScope = _$rootScope_;
             $timeout = _$timeout_;
             location = $location;
+            spyOn(location, 'path').and.returnValue('/');
         }));
 
         it('should be able to handle a succesfull registration and pass object', function () {
@@ -197,20 +198,15 @@
         });
 
         it('should be able to switch to home after registration', function () {
-            regsiterController = $rootScope.$new();
+            //registerController = $rootScope.$new();
             registerController.alertVisible = false;
             registerController.newMember = testregistratieMember;
             spyOn(registerController, 'registerMember').and.callThrough();
-
-
             registerController.registerMember(testregistratieMember);
             $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond(204);
             $httpBackend.flush();
             $rootScope.$digest();
             $timeout.flush();
-            //
-            spyOn(location, 'path').and.returnValue('/');
-            expect(registerController.path).toBe('Fake location');
             expect(location.path).toHaveBeenCalledWith('/');
         });
 

@@ -22,10 +22,13 @@
         };
 
 
-    vm.registerHorse = function registerHorse () {
-        alert ('registered')
-    }
-    }]);
+        vm.registerHorse = function registerHorse() {
+            alert('registered');
+        };
 
+        vm.setpassport = function setpassport() {
+            $location.path('/paspoort');
+        };
+    }]);
 })();
 
