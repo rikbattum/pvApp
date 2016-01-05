@@ -1,7 +1,6 @@
 (function () {
     'use strict';
 
-
     // Unit tests for Register Controller
 
     describe('RegisterController', function () {
@@ -12,20 +11,48 @@
         var membService;
         var testregistratieMember = [{
             'achternaam': 'van Battum',
+            'buitenritten': 'true',
+            'drafsport': 'true',
             'dressuur': 'true',
+            'endurance': 'true',
             'eventing': 'true',
+            'fokken': 'true',
             'geboortedatum': 'Tue Jun 12 1979 00:00:00 GMT+0200 (West-Europa (zomertijd))',
+            'inEnVerkoop': 'true',
             'inputemail13': 'rikbattum@hotmail.com',
-            //'memberId': '1886002202084267',
+            'memberId': '4526664079889',
             'mennen': 'true',
+            'naturalHorsemanship': 'true',
             'overMij': 'Ik ben een topper',
-            'paard1': 'Estrella',
-            'password': 'r9kkD',
-            'plaatsnamen': 'Aagtekerke',
+            'paard1': 'Kyrane',
+            'paard2': 'Michael',
+            'paard3': 'Mika',
+            'paard4': 'Donnie',
+            'paard5': 'Yup',
+            'paard6': 'Reno',
+            'paard7': 'Elsa',
+            'paard8': 'Elin',
+            'paard9': 'Ollie',
+            'paard10': 'Tristan',
+            'paardenTrainen': 'true',
+            'paardenVerzorgen': 'true',
+            'password': 'G4hj',
+            'plaatsnamen': 'Hilversum',
+            'polo': 'true',
+            'rensport': 'true',
+            'rijdenLocatie': 'true',
+            'ringsteken': 'true',
+            'rodeo': 'true',
+            'samenTrainen': 'true',
+            'showrijden': 'true',
             'springen': 'true',
+            'voedingGezondheid': 'true',
             'voltige': 'true',
+            'voorlichting': 'true',
             'voornaam': 'Rik',
-            'wedstrijdsport': 'true'
+            'vossenjacht': 'true',
+            'wedstrijdsport': 'true',
+            'western': 'true'
         }];
 
         beforeEach(inject(function ($controller, $log, memberService) {
@@ -81,31 +108,61 @@
         var $httpBackend;
         var $rootScope;
         var $timeout;
+        var location;
         var testregistratieMember = [{
-            'achternaam': 'van Battum',
-            'dressuur': 'true',
-            'eventing': 'true',
-            'geboortedatum': 'Tue Jun 12 1979 00:00:00 GMT+0200 (West-Europa (zomertijd))',
-            'inputemail13': 'rikbattum@hotmail.com',
-            //'memberId': '1886002202084267',
-            'mennen': 'true',
-            'overMij': 'Ik ben een topper',
-            'paard1': 'Estrella',
-            'password': 'r9kkD',
-            'plaatsnamen': 'Aagtekerke',
-            'springen': 'true',
-            'voltige': 'true',
-            'voornaam': 'Rik',
-            'wedstrijdsport': 'true'
+            achternaam: 'van Battum',
+            buitenritten: true,
+            drafsport: true,
+            dressuur: true,
+            endurance: true,
+            eventing: true,
+            fokken: true,
+            geboortedatum: 'Tue Jun 12 1979 00:00:00 GMT+0200 (West-Europa (zomertijd))',
+            inEnVerkoop: 'true',
+            inputemail13: 'rikbattum@hotmail.com',
+            memberId: 4526664079889,
+            mennen: true,
+            naturalHorsemanship: true,
+            overMij: 'Ik ben een topper',
+            paard1: 'Kyrane',
+            paard2: 'Michael',
+            paard3: 'Mika',
+            paard4: 'Donnie',
+            paard5: 'Yup',
+            paard6: 'Reno',
+            paard7: 'Elsa',
+            paard8: 'Elin',
+            paard9: 'Ollie',
+            paard10: 'Tristan',
+            paardenTrainen: true,
+            paardenVerzorgen: true,
+            password: 'G4hj',
+            plaatsnamen: 'Hilversum',
+            polo: true,
+            rensport: true,
+            rijdenLocatie: true,
+            ringsteken: true,
+            rodeo: true,
+            samenTrainen: true,
+            showrijden: true,
+            springen: true,
+            voedingGezondheid: true,
+            voltige: true,
+            voorlichting: true,
+            voornaam: 'Rik',
+            vossenjacht: true,
+            wedstrijdsport: true,
+            western: true
         }];
 
-        beforeEach(inject(function ($controller, $log, memberService, _$httpBackend_, _$rootScope_, _$timeout_) {
+        beforeEach(inject(function ($controller, $log, memberService, _$httpBackend_, _$rootScope_, _$timeout_, $location) {
             registerController = $controller('RegisterController');
             log = $log;
             membService = memberService;
             $httpBackend = _$httpBackend_;
             $rootScope = _$rootScope_;
             $timeout = _$timeout_;
+            location = $location;
         }));
 
         it('should be able to handle a succesfull registration and pass object', function () {
@@ -140,7 +197,21 @@
         });
 
         it('should be able to switch to home after registration', function () {
+            regsiterController = $rootScope.$new();
+            registerController.alertVisible = false;
+            registerController.newMember = testregistratieMember;
+            spyOn(registerController, 'registerMember').and.callThrough();
 
+
+            registerController.registerMember(testregistratieMember);
+            $httpBackend.expectPOST('http://localhost:8080/pvAppApi/paardenvriendjes/Member').respond(204);
+            $httpBackend.flush();
+            $rootScope.$digest();
+            $timeout.flush();
+            //
+            spyOn(location, 'path').and.returnValue('/');
+            expect(registerController.path).toBe('Fake location');
+            expect(location.path).toHaveBeenCalledWith('/');
         });
 
         it('should be able to handle a failure registration', function () {
