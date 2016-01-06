@@ -8,6 +8,11 @@
         vm.showFailureRegistration;
         vm.horsetlist = [];
         vm.selectedHorse = 'jouw paard';
+        vm.waardeklasse = ['onbetaalbaar voor mij', '0-1.000', '1.000-2.000', '2.000-5.000', '5.000-10.000', '10.000-15.000', '15.000-20.000', '20.000-25.000', '25.000-30.000', '30.000-50.000', '50.000+'];
+        vm.transfer = ['beschikbaar voor een nieuwe uitdaging', 'misschien beschikbaar in overleg', 'niet beschikbaar'];
+        vm.shortnamepattern = '^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$';
+        vm.geboortedatumvalidatiepattern = '(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))';
+
 
         vm.getHorses = function () {
 

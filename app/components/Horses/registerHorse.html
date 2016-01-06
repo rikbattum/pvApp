@@ -2,36 +2,49 @@
     <h1> Over {{ctrlHorse.selectedHorse}}</h1>
 </div>
 <br>
-<form class="form-horizontal" role="form" name=registerForm ng-submit="ctrlHorse.registerHorse()">
-    <div class="form-group">
-        <label for="naam" class="col-sm-2 control-label">Naam</label>
+<form class="form-horizontal" role="form" name=registerFormHorse
+      ng-submit="registerFormHorse.$valid && ctrlHorse.registerHorse()">
 
+    <div class="form-group"
+         ng-class="{ 'has-error' : registerFormHorse.naam.$invalid && registerFormHorse.naam.$touched}">
+        <label for="naam" class="col-sm-2 control-label">Naam</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="naam" placeholder="Naam" required="required"
-                   maxlength="30" ng-model=ctrlHorse.voornaam>
+            <input type="text" class="form-control" id="naam" name="naam" placeholder="Naam" required="required"
+                   maxlength="30" ng-model=ctrlHorse.voornaam
+                   ng-pattern="ctrlHorse.shortnamepattern">
+            <span class=" help-block"
+                  ng-show="registerFormHorse.naam.$touched && registerFormHorse.naam.$error.required">Naam van je paard is verplicht</span>
+            <span class="help-block" ng-show="registerFormHorse.naam.$dirty && registerFormHorse.naam.$error.pattern">2-20 aaneengesloten letters, cijfers, -_.</span>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group"
+         ng-class="{ 'has-error' : registerFormHorse.afstamming.$invalid && registerFormHorse.afstamming.$touched}">
         <label class="col-sm-2 control-label">Afstamming</label>
         <div class="col-sm-8">
-            <input type="text" class="form-control" id="Afstamming" ng-model=ctrlHorse.Afstamming>
+            <input type="text" class="form-control" id="afstamming" name="afstamming" ng-model=ctrlHorse.Afstamming
+                   maxlength="60" placeholder="Afstamming">
         </div>
     </div>
     <div class="form-group">
         <label class="col-sm-2 control-label">Geslacht </label>
         <div class="col-sm-8">
-            <select id="geslachtselect" name="geslachtselect" class="form-control" ng-model=ctrlHorse.geslacht>
+            <select id="geslachtselect" name="geslachtselect" class="form-control" ng-model=ctrlHorse.geslacht
+                    ng-required>
                 <option value="Merry" selected="selected">Merry</option>
                 <option value="Hengst">Hengst</option>
             </select>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group"
+        ng-class="{ 'has-error' : registerFormHorse.Geboortedatum.$invalid && registerFormHorse.Geboortedatum.$touched}">
         <label for="Geboortedatum" class="col-sm-2 control-label">Geboortedatum</label>
-
         <div class="col-sm-8">
-            <input type="date" class="form-control" id="Geboortedatum" required="required"
-                   ng-model=ctrlHorse.geboortedatum>
+            <input type="date" class="form-control" id="Geboortedatum" name="Geboortedatum" required="required"
+                   ng-model=ctrlHorse.geboortedatum
+                   ng-pattern="ctrlHorse.geboortedatumvalidatiepattern"
+                   ng-required="true">
+            <span class="help-block"
+                  ng-show="registerFormHorse.Geboortedatum.$touched && registerFormHorse.Geboortedatum.$invalid">ongeldige datum</span>
         </div>
     </div>
     <div class="form-group">
@@ -55,12 +68,22 @@
             <input type="checkbox" id="Natural_horsemanship" ng-model=ctrlHorse.naturalHorsemanship> Natural
             Horsemanship
             <input type="checkbox" id="Polo" ng-model=ctrlHorse.polo> Polo
+            <input type="checkbox" id="Fokken" ng-model=ctrlHorse.newMember.fokken> Fokken
+            <input type="checkbox" id="Polo" ng-model=ctrlHorse.newMember.polo> Polo
+            <input type="checkbox" id="Endurance" ng-model=ctrlHorse.newMember.endurance> Endurance
+            <input type="checkbox" id="Rensport" ng-model=ctrlHorse.newMember.rensport> Rensport
+            <input type="checkbox" id="Drafsport" ng-model=ctrlHorse.newMember.drafsport> Drafsport
+            <input type="checkbox" id="Ringsteken" ng-model=ctrlHorse.newMember.ringsteken> Ringsteken
+            <input type="checkbox" id="Rodeo" ng-model=ctrlHorse.newMember.rodeo> Rodeo
+            <input type="checkbox" id="Vossenjacht" ng-model=ctrlHorse.newMember.vossenjacht> Vossenjacht
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.springen">
+    <div class="form-group" ng-show="ctrlHorse.springen"
+         ng-class="{'has-error' : registerFormHorse.Spring_klasse.$invalid && registerFormHorse.$submitted}">
         <label for="Spring_klasse" class="col-sm-2 control-label">Spring Klasse</label>
         <div class="col-sm-8">
-            <select id="Spring_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseSpringen>
+            <select id="Spring_klasse" name=Spring_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseSpringen
+                    ng-required="ctrlHorse.springen">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -69,12 +92,15 @@
                 <option>ZZ</option>
                 <option>Nationaal</option>
             </select>
+            <span class="help-block" ng-show="registerFormHorse.$submitted && registerFormHorse.Spring_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.dressuur">
+    <div class="form-group" ng-show="ctrlHorse.dressuur"
+         ng-class="{'has-error' : registerFormHorse.Dressuur_klasse.$invalid && registerFormHorse.$submitted}">
         <label for="Dressuur_klasse" class="col-sm-2 control-label">Dressuur Klasse</label>
         <div class="col-sm-8">
-            <select id="Dressuur_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseEventing>
+            <select id="Dressuur_klasse" name="Dressuur_klasse" class="form-control"
+                    ng-model=ctrlHorse.sportKlasseEventing ng-required="ctrlHorse.dressuur">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -83,12 +109,16 @@
                 <option>ZZ</option>
                 <option>Nationaal</option>
             </select>
+            <span class="help-block"
+                  ng-show="registerFormHorse.$submitted && registerFormHorse.Dressuur_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.eventing">
+    <div class="form-group" ng-show="ctrlHorse.eventing"
+         ng-class="{'has-error' : registerFormHorse.Eventing_klasse.$invalid && registerFormHorse.$submitted}">
         <label for="Eventing_klasse" class="col-sm-2 control-label">Eventing Klasse</label>
         <div class="col-sm-8">
-            <select id="Eventing_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseDressuur>
+            <select id="Eventing_klasse" name="Eventing_klasse" class="form-control"
+                    ng-model=ctrlHorse.sportKlasseDressuur ng-required="ctrlHorse.eventing">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -97,12 +127,16 @@
                 <option>ZZ</option>
                 <option>Nationaal</option>
             </select>
+            <span class="help-block"
+                  ng-show="registerFormHorse.$submitted && registerFormHorse.Eventing_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.mennen">
+    <div class="form-group" ng-show="ctrlHorse.mennen"
+         ng-class="{'has-error' : registerFormHorse.Mennen_klasse.$invalid && registerFormHorse.$submitted}">
         <label for="Mennen_klasse" class="col-sm-2 control-label">Mennen Klasse</label>
         <div class="col-sm-8">
-            <select id="Mennen_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseMennen>
+            <select id="Mennen_klasse" name="Mennem_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseMennen
+                    ng-required="ctrlHorse.mennen">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -111,12 +145,15 @@
                 <option>ZZ</option>
                 <option>Nationaal</option>
             </select>
+            <span class="help-block" ng-show="registerFormHorse.$submitted && registerFormHorse.Mennen_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.voltige">
-        <label for="Voltige_klasse" class="col-sm-2 control-label">Voltige Klasse</label>
+    <div class="form-group" ng-show="ctrlHorse.voltige"
+         ng-class="{'has-error' : registerFormHorse.Voltige_klasse.$invalid && registerFormHorse.$submitted}">
+        <label for="Voltige_klasse" name="Voltige_klasse" class="col-sm-2 control-label">Voltige Klasse</label>
         <div class="col-sm-8">
-            <select id="Voltige_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseVoltige>
+            <select id="Voltige_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseVoltige
+                    ng-required="ctrlHorse.voltige">
                 <option>Recreatief</option>
                 <option>B</option>
                 <option>L</option>
@@ -125,82 +162,54 @@
                 <option>ZZ</option>
                 <option>Nationaal</option>
             </select>
+            <span class="help-block"
+                  ng-show="registerFormHorse.$submitted && registerFormHorse.Voltige_klasse.$invalid">Vul je niveau in</span>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.western">
-        <label for="Western_klasse" class="col-sm-2 control-label">Western Klasse</label>
-        <div class="col-sm-8">
-            <select id="Western_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseWestern>
-                <option>Recreatief</option>
-                <option>B</option>
-                <option>L</option>
-                <option>M</option>
-                <option>Z</option>
-                <option>ZZ</option>
-                <option>Nationaal</option>
-            </select>
+    <div class="form-group">
+        <div>
+            <label for="Profielfoto" class="col-sm-2 control-label">Profielfoto (vierkant)</label>
+            <div class="col-sm-4">
+                <input type="file" id="Profielfoto" class="form-control">
+                <br>
+                <img id=profilepicture class="img-responsive"
+                     src="app\CSS and content\Pictures\Basic profile pic\horse\base_profile_pic.jpg" alt=""
+                     style="height:150px; width:150px; float:left" ALIGN=LEFT/>
+            </div>
+            </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-lg-offset-4">
+                <input type="button" value="Maak vast een paspoort aan!" class="btn btn-default" id="paspoortbutton"
+                       class="form-control" style="float:right">
+                <br>
+                <br>
+                <br>
+                <img id=paspoort class="img-responsive"
+                     src="app\CSS and content\Pictures\Paspoort/paspoort.jpg" alt=""
+                     style="height:150px; width:150px" ng-click="ctrlHorse.setpassport()" ALIGN=RIGHT>
+            </div>
+            </div>
         </div>
     </div>
-    <div class="form-group" ng-show="ctrlHorse.showrijden">
-        <label for="Showrijden_klasse" class="col-sm-2 control-label">Showrijden Klasse</label>
+    <!--<div class="form-group">-->
+    <!---->
+    <!--</div>-->
+    <div class="form-group">
+        <label for="waarde" class="col-sm-2 control-label">Waarde</label>
         <div class="col-sm-8">
-            <select id="Showrijden_klasse" class="form-control" ng-model=ctrlHorse.sportKlasseShowrijden>
-                <option>Recreatief</option>
-                <option>B</option>
-                <option>L</option>
-                <option>M</option>
-                <option>Z</option>
-                <option>ZZ</option>
-                <option>Nationaal</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group" ng-show="ctrlHorse.naturalHorsemanship">
-        <label for="NaturalHorsemanShip_klasse" class="col-sm-2 control-label">NaturalHorsemanship Klasse</label>
-        <div class="col-sm-8">
-            <select id="NaturalHorsemanShip_klasse" class="form-control"
-                    ng-model=ctrlHorse.sportKlasseNaturalHorsemanShip>
-                <option>Recreatief</option>
-                <option>B</option>
-                <option>L</option>
-                <option>M</option>
-                <option>Z</option>
-                <option>ZZ</option>
-                <option>Nationaal</option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group" ng-show="ctrlHorse.polo">
-        <label for="Polo_klasse" class="col-sm-2 control-label">Polo Klasse</label>
-        <div class="col-sm-8">
-            <select id="Polo_klasse" class="form-control" ng-model=ctrlHorse.sportKlassePolo>
-                <option>Recreatief</option>
-                <option>B</option>
-                <option>L</option>
-                <option>M</option>
-                <option>Z</option>
-                <option>ZZ</option>
-                <option>Nationaal</option>
+            <select id="waarde" class="form-control" ng-options="waarde for waarde in ctrlHorse.waardeklasse"
+                    ng-model="ctrlHorse.waarde">
+                <option></option>
             </select>
         </div>
     </div>
     <div class="form-group">
-        <label for="Profielfoto" class="col-sm-2 control-label">Profielfoto (vierkant)</label>
+        <label for="transfer" class="col-sm-2 control-label">Transfer</label>
         <div class="col-sm-8">
-            <input type="file" id="Profielfoto" class="form-control">
-            <br>
-            <img id=profilepicture class="img-responsive"
-                 src="app\CSS and content\Pictures\Basic profile pic\horse\base_profile_pic.jpg" alt=""
-                 style="height:150px; width:150px"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="Profielfoto" class="col-sm-2 control-label">Vul vast een paspoort in</label>
-        <div class="col-sm-8">
-            <br>
-            <img id=paspoort class="img-responsive"
-                 src="app\CSS and content\Pictures\Paspoort/paspoort.jpg" alt=""
-                 style="height:150px; width:150px" ng-click = "ctrlHorse.setpassport()">
+            <select id="transfer" class="form-control" ng-options="transfer for transfer in ctrlHorse.transfer"
+                    ng-model="ctrlHorse.tranfer">
+                <option></option>
+            </select>
         </div>
     </div>
     <div class="form-group" ng-show="!ctrlHorse.showSuccessRegistration">
