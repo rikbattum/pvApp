@@ -10,6 +10,7 @@
 angular.module('PVapp').controller('basicController', function () {
     var vm = this;
     vm.memberinFocus = 'Vriendje';
+    vm.name = 'Members ';
 });
 
 

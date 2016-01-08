@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('PVapp').controller('RegisterController', ['memberService', '$timeout', '$location', '$log', function (memberService, $timeout, $location, $log) {
+    angular.module('PVapp').controller('RegisterController', ['memberService', '$timeout', '$location', '$log', 'SessionService', function (memberService, $timeout, $location, $log, SessionService) {
         var vm = this;
         vm.submitting = false;
         vm.showSuccessRegistration = false;
@@ -33,7 +33,12 @@
                     $timeout(function () {
                         vm.showSuccessRegistration = false;     // disables succes message after timeout
                         $location.path('/');                    // routes to home on success after timeout
-                    }, 1000);
+                    }, 1000)
+                        .then(function (data) {
+                            SessionService.initializeSession();
+                            var naam = vm.voornaam;
+                            SessionService.addSessionDetails(naam);
+                        });
                 }, function (error) {
                     vm.showFailureRegistration = true;
                     $timeout(function () {

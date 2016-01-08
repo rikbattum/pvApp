@@ -3,7 +3,7 @@
 
     // Declare app level module which depends on views, and components
     var PVapp = angular.module('PVapp', [
-        'ngRoute', 'angular-ladda', 'ngTable'
+        'ngRoute', 'angular-ladda', 'ngTable', 'Session'
     ]).
         config(['$routeProvider', function ($routeProvider) {
             $routeProvider
