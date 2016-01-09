@@ -36,8 +36,6 @@
                     }, 1000)
                         .then(function (data) {
                             SessionService.initializeSession();
-                            var naam = vm.voornaam;
-                            SessionService.addSessionDetails(naam);
                         });
                 }, function (error) {
                     vm.showFailureRegistration = true;

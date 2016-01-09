@@ -16,7 +16,7 @@
                 .when('/myCarousel', {
                     templateUrl: 'app/components/Home/home.html ',
                     controller: 'basicController',
-                    controllerAs: 'ctrlbasic'
+                    controllerAs: 'ctrlBasic'
                 })
                 .when('/register', {
                     template: '<register-directive></register-directive>'

@@ -28,7 +28,7 @@
     <link href="app/bower_components/ng-table/dist/ng-table.min.css" rel="stylesheet" type="text/css">
     </head>
 
-<body style="background-color: #FDF3E7;">
+<body ng-controller="basicController as ctrlBasic" style="background-color: #FDF3E7;">
 <div class="navbar-wrapper" style="background-color: #FDF3E7;">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -60,7 +60,7 @@
                         <li><a href="#/paarden">Paarden</a></li>
                         <li><a href="Forum.html">Forum</a></li>
                         <li><a href="Eventtalk.html">Eventtalk</a></li>
-                        <li><a href="#/memberpage">{{"ctrlbasic.name"}} page</a></li>
+                        <li><a href="#/memberpage">{{ctrlBasic.name}} page</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">More <span
                                     class="caret"></span></a>

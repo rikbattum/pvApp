@@ -1,17 +1,17 @@
-/*
- Main control for PaardenVriendjes.nl
- Rights Protected;
- For any duplication contact FJ van Battum (Rik) of PaardenVriendjes.nl BV.
- Inquiries: rikbattum@hotmail.com
- */
+(function () {
+    'use strict';
 
-'use strict';
 
-angular.module('PVapp').controller('basicController', function () {
-    var vm = this;
-    vm.memberinFocus = 'Vriendje';
-    vm.name = 'Members ';
-});
+    angular.module('PVapp').controller('basicController', 'SessionService', function (SessionService) {
+        var vm = this;
+        var listener;
+        vm.memberinFocus = 'Vriendje';
+        vm.name = 'Members ';
+
+
+        SessionService.registerListener(listener);
+
+    });
 
 
 //    mainctrl.registerMember = function () {
@@ -19,3 +19,4 @@ angular.module('PVapp').controller('basicController', function () {
 //    mainctrl.memberInFocus= dataResponse;
 
 
+})();
