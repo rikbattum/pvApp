@@ -6,9 +6,12 @@
     describe('RegisterController', function () {
 
         beforeEach(module('PVapp'));
+
         var registerController;
         var log;
         var membService;
+        var sesService;
+        var timeout;
         var testregistratieMember = [{
             'achternaam': 'van Battum',
             'buitenritten': 'true',
@@ -55,14 +58,21 @@
             'western': 'true'
         }];
 
-        beforeEach(inject(function ($controller, $log, memberService) {
+
+        beforeEach(inject(function ($controller, $log, $timeout, memberService, SessionService) {
             registerController = $controller('RegisterController');
             log = $log;
+            timeout = $timeout;
             membService = memberService;
+            sesService = SessionService;
             spyOn(registerController, 'registerMember').and.callThrough();
             spyOn(log, 'log').and.callThrough();
             spyOn(membService, 'postNewMember').and.callThrough();
         }));
+
+        it('should have access to the session Service', function () {
+            expect(sesService).toBeDefined();
+        });
 
         it('should have a defined controller', function () {
             expect(registerController).toBeDefined();

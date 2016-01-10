@@ -43,7 +43,7 @@
                         vm.showFailureRegistration = false;     // show error message
                         $log.log(error);
                     }, 2000);
-                    vm.submitting = false;                 // handels the button to become available again.
+                    vm.submitting = false;                 // handles the button to become available again.
                 });
         };
     }]);

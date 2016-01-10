@@ -2,7 +2,7 @@
     'use strict';
 
 
-    angular.module('Session', []).service('SessionService', 'memberService' [function (memberService) {
+    angular.module('Session', []).service('SessionService', ['memberService', function (memberService) {
 
         var sessiondetails = [];
         var listenerArray = [];

@@ -2,7 +2,7 @@
     'use strict';
 
 
-    angular.module('PVapp').controller('basicController', 'SessionService', function (SessionService) {
+    angular.module('PVapp').controller('basicController', ['SessionService', function (SessionService) {
         var vm = this;
         var listener;
         vm.memberinFocus = 'Vriendje';
@@ -11,7 +11,7 @@
 
         SessionService.registerListener(listener);
 
-    });
+    }]);
 
 
 //    mainctrl.registerMember = function () {
