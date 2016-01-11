@@ -14,8 +14,15 @@
             },
             initializeSession: function initializeSession() {
                 sessiondetails = [];
-                memberDetails = memberService.getMember(1);
-                sessiondetails.push(memberDetails);
+                memberDetails = memberService.getMemberDetails(1)
+                    .then(function (memberdetails) {
+                        sessiondetails.push(memberDetails);
+                        console.log(sessiondetails);
+                        console.log(sessiondetails.memberdetails);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             },
             addSessionDetails: function addSessionDetails(runningState) {
                 sessiondetails.push(runningState);
@@ -35,5 +42,5 @@
             }
         };
     }
-        ]);
+    ]);
 })();

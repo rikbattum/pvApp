@@ -33,21 +33,25 @@
                     $timeout(function () {
                         vm.showSuccessRegistration = false;     // disables succes message after timeout
                         $location.path('/');                    // routes to home on success after timeout
-                    }, 1000)
-                        .then(function (data) {
-                            SessionService.initializeSession();
-                        });
-                }, function (error) {
-                    vm.showFailureRegistration = true;
-                    $timeout(function () {
-                        vm.showFailureRegistration = false;     // show error message
-                        $log.log(error);
-                    }, 2000);
-                    vm.submitting = false;                 // handles the button to become available again.
-                });
+                    }, 1000);
+                })
+                .then(function (data) {
+                    SessionService.initializeSession();
+                })
+                .catch(function (error) {
+                        vm.showFailureRegistration = true;
+                        $timeout(function () {
+                            vm.showFailureRegistration = false;     // show error message
+                            $log.log(error);
+                        }, 2000);
+                        vm.submitting = false;                 // handles the button to become available again.
+                    }
+                );
         };
-    }]);
-})();
+    }])
+    ;
+})
+();
 
 
 
