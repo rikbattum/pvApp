@@ -28,15 +28,15 @@
 
             memberService.postNewMember(vm.newMember)
                 .then(function (data) {
-                    $log.log('post succesfull');
+                    $log.log('post succesfull', data);
                     vm.showSuccessRegistration = true;          // show succes message
                     $timeout(function () {
                         vm.showSuccessRegistration = false;     // disables succes message after timeout
                         $location.path('/');                    // routes to home on success after timeout
                     }, 1000);
                 })
-                .then(function (data) {
-                    SessionService.initializeSession();
+                .then(function () {
+                    SessionService.initializeSession(vm.newMember.memberId);         //initialize session
                 })
                 .catch(function (error) {
                         vm.showFailureRegistration = true;

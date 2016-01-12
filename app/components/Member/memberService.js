@@ -42,6 +42,24 @@
                     });
             };
 
+            var getIndividualMemberDetailsByMemberID = function (id, res) {
+
+                return $http({
+                    method: 'GET',
+                    url: baseUrlMember + '/memberid/' + id,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                    .success(function (res) {
+                        $log.log('reached get statement of individual Member by memberID');
+                    })
+                    .error(function (error, status) {
+                        $log.error('get status bad', error);
+                    });
+            };
+
+
 
             var postMember = function (newMember) {
 
@@ -95,6 +113,7 @@
                 'deleteMember': deleteMemberDetails,
                 'getMember': getMemberDetails,
                 'getMemberDetails': getIndividualMemberDetails,
+                'getMemberDetailsByMemID': getIndividualMemberDetailsByMemberID,
                 'updateMember': updatetMember
             };
         });

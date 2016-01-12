@@ -12,13 +12,14 @@
             registerListener: function registerListener(listener) {
                 listenerArray.push(listener);
             },
-            initializeSession: function initializeSession() {
+            initializeSession: function initializeSession(memberId) {
                 sessiondetails = [];
-                memberDetails = memberService.getMemberDetails(1)
-                    .then(function (memberdetails) {
+                memberDetails = memberService.getMemberDetailsByMemID(memberId)
+                    .then(function (memberdetailsRetrieved) {
+                        memberDetails = memberdetailsRetrieved;
                         sessiondetails.push(memberDetails);
                         console.log(sessiondetails);
-                        console.log(sessiondetails.memberdetails);
+                        console.log(sessiondetails.data.voornaam);
                     })
                     .catch(function (error) {
                         console.log(error);
