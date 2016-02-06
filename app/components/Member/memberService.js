@@ -46,7 +46,7 @@
 
                 return $http({
                     method: 'GET',
-                    url: baseUrlMember + '/memberid/' + id,
+                    url: baseUrlMember + '/' + id,
                     headers: {
                         'Accept': 'application/json'
                     }
@@ -65,7 +65,7 @@
 
                 return $http.post(baseUrlMember, newMember)
                     .success(function (data, status) {
-                        $log.log('Post success, status: ' + status);
+                        $log.log('Post success, status: ', data, status);
                     })
                     .error(function (error, status, x) {
                         console.log('This is the error:' + error, status, x);

@@ -23,8 +23,8 @@
 
         vm.registerMember = function () {
             vm.submitting = true;
-            vm.newMember.memberId = getRandomIntInclusive(0, 100000000000000);
-            $log.log('this is memberId', vm.newMember.memberId);
+            vm.newMember.id = getRandomIntInclusive(0, 100000000000000);
+            $log.log('this is memberId', vm.newMember.id);
 
             memberService.postNewMember(vm.newMember)
                 .then(function (data) {
@@ -36,6 +36,7 @@
                     }, 1000);
                 })
                 .then(function () {
+
                     SessionService.initializeSession(vm.newMember.memberId);         //initialize session
                 })
                 .catch(function (error) {
