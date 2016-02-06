@@ -37,7 +37,7 @@
                 })
                 .then(function () {
 
-                    SessionService.initializeSession(vm.newMember.memberId);         //initialize session
+                    SessionService.initializeSession(vm.newMember.id);         //initialize session
                 })
                 .catch(function (error) {
                         vm.showFailureRegistration = true;
