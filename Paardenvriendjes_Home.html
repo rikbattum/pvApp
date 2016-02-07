@@ -26,7 +26,8 @@
     <link href="app/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
     <!-- ng-table -->
     <link href="app/bower_components/ng-table/dist/ng-table.min.css" rel="stylesheet" type="text/css">
-
+<!-- font awesome -->
+    <link href="app/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core JavaScript
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Supporting script libraries -->
@@ -63,6 +64,7 @@
     </head>
 
 <body ng-controller="basicController as ctrlBasic" style="background-color: #FDF3E7;" ng-class="ng-cloak">
+
 <div class="navbar-wrapper" style="background-color: #FDF3E7;">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -116,14 +118,18 @@
     </div>
 </div>
 
+<div class="container">
 <!-- Place central content here with NG-view>> Single Page Paardenvriendjes -->
 <ng-view> </ng-view>
 
+
 <!-- FOOTER -->
-<footer>
+<footer class = "margin-top-md">
     <p class="pull-right"><a href="#">Back to top</a></p>
     <p>&copy; 2015 PaardenVriendjes &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 </footer>
+
+</div>
 </body>
 </html>
 

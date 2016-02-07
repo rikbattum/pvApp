@@ -11,9 +11,10 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "bootstrap":"~3.3.6",
+    "bootstrap": "~3.3.6",
     "ladda": "~0.9.8",
     "angular-ladda": "~0.3.1",
-    "bootstrap-select":"~1.9.3"
+    "bootstrap-select": "~1.9.3",
+    "font-awesome": "~4.5.0"
   }
 }
