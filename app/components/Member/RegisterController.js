@@ -38,6 +38,7 @@
                 .then(function () {
 
                     SessionService.initializeSession(vm.newMember.id);         //initialize session
+                    console.log ('session initialized with: ', vm.newMember.id);
                 })
                 .catch(function (error) {
                         vm.showFailureRegistration = true;

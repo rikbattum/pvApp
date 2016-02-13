@@ -6,8 +6,15 @@
         var vm = this;
         var listener;
         vm.memberinFocus = 'Vriendje';
-        vm.name = 'Members ';
+        vm.nameInSession = undefined;
 
+        vm.determineNameInNavbar = function determineNameInNavbar() {
+
+            if (vm.nameInSession === undefined) {
+                vm.nameInSession = 'Jouw boek';
+            }
+            return vm.nameInSession;
+        };
 
         SessionService.registerListener(listener);
 

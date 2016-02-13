@@ -6,20 +6,21 @@
 
         var sessiondetails = [];
         var listenerArray = [];
-        var memberDetails;
 
         return {
             registerListener: function registerListener(listener) {
                 listenerArray.push(listener);
             },
             initializeSession: function initializeSession(memberId) {
-                sessiondetails = [];
-                memberDetails = memberService.getMemberDetailsByMemID(memberId)
-                    .then(function (memberdetailsRetrieved) {
-                        memberDetails = memberdetailsRetrieved;
-                        sessiondetails.push(memberDetails);
+                memberService.getMemberDetailsByMemID(memberId)
+                    .then(function (member) {
+                        console.log('----> member details retrieved ', member);
+                        console.log (member.data['id']);
+                        sessiondetails.push(member.data.id);
+                        sessiondetails.push(member.data.voornaam);
+                        sessiondetails.push(member.data.achternaam);
                         console.log(sessiondetails);
-                        console.log(sessiondetails.data.voornaam);
+                        console.log(sessiondetails[voornaam]);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -30,6 +31,9 @@
             },
             getSessionDetails: function getsessionDetails() {
                 return sessiondetails;
+            },
+            getMemberId: function getMemberId() {
+                return sessiondetails.data.memberId;
             },
             removeSessionDetails: function sessionDetails(array, key) {
                 var arraylocation = array.indexOf(key);

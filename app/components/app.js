@@ -14,7 +14,7 @@
                         }
                     })
                 .when('/myCarousel', {
-                    templateUrl: 'app/components/Home/new_home.html ',
+                    templateUrl: 'app/components/Home/home.html ',
                     controller: 'basicController',
                     controllerAs: 'ctrlBasic'
                 })
@@ -45,6 +45,11 @@
                     templateUrl: 'app/components/Horses/paspoort.html',
                     controller: 'PaspoortController',
                     controllerAs: 'ctrlPP'
+                })
+                .when('/timeline', {
+                    templateUrl: 'app/components/Timeline/timeline.html',
+                    controller: 'TimeLineController',
+                    controllerAs: 'ctrlTime'
                 })
                 .otherwise({
                     redirectTo: '/'
