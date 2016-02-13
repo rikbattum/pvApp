@@ -2,7 +2,7 @@
     'use strict';
 
 
-    angular.module('PVapp').controller('TimelineController', [function () {
+    angular.module('PVapp').controller('TimeLineController', [function () {
         var vm = this;
 
         vm.updatetable = [];
