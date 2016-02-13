@@ -30,15 +30,13 @@
                 .then(function (data) {
                     $log.log('post succesfull', data);
                     vm.showSuccessRegistration = true;          // show succes message
+                    SessionService.setMember (vm.newMember.id);
+                    SessionService.postSession();         //initialize session
+                    console.log ('session initialized with: ', vm.newMember.id);
                     $timeout(function () {
                         vm.showSuccessRegistration = false;     // disables succes message after timeout
                         $location.path('/');                    // routes to home on success after timeout
                     }, 1000);
-                })
-                .then(function () {
-
-                    SessionService.initializeSession(vm.newMember.id);         //initialize session
-                    console.log ('session initialized with: ', vm.newMember.id);
                 })
                 .catch(function (error) {
                         vm.showFailureRegistration = true;

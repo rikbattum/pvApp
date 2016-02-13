@@ -3,7 +3,7 @@
 
 // This service should handle all front-end CRUD operations for the Jax-RS member service.
     angular.module('PVapp')
-        .factory('memberService', function ($http, PVConfig, $log) {
+        .factory('memberService', ['$http', 'PVConfig', '$log', function ($http, PVConfig, $log) {
 
             var baseUrlMember = PVConfig.baseUrl + 'Member';
 
@@ -116,5 +116,5 @@
                 'getMemberDetailsByMemID': getIndividualMemberDetailsByMemberID,
                 'updateMember': updatetMember
             };
-        });
+        }]);
 })();
