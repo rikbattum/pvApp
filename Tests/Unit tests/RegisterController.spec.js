@@ -23,7 +23,7 @@
             'geboortedatum': 'Tue Jun 12 1979 00:00:00 GMT+0200 (West-Europa (zomertijd))',
             'inEnVerkoop': 'true',
             'inputemail13': 'rikbattum@hotmail.com',
-            'memberId': '4526664079889',
+            'id': '4526664079889',
             'mennen': 'true',
             'naturalHorsemanship': 'true',
             'overMij': 'Ik ben een topper',
@@ -97,7 +97,7 @@
         it('should be able to generate and log memberID', function () {
             registerController.newMember = testregistratieMember;
             registerController.registerMember(testregistratieMember);
-            expect(log.log).toHaveBeenCalledWith('this is memberId', testregistratieMember.memberId);
+            expect(log.log).toHaveBeenCalledWith('this is memberId', testregistratieMember.id);
         });
 
         it('should be able to post a full newMember', function () {

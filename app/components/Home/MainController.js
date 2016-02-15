@@ -4,27 +4,18 @@
 
     angular.module('PVapp').controller('basicController', ['SessionService', function (SessionService) {
         var vm = this;
-        var listener;
         vm.memberinFocus = 'Vriendje';
         vm.nameInSession = undefined;
 
-        vm.determineNameInNavbar = function determineNameInNavbar() {
-
+        var determineNameInNavbar = function determineNameInNavbar(session) {
             if (vm.nameInSession === undefined) {
                 vm.nameInSession = 'Jouw boek';
             }
+            else {
+                vm.nameInSession = session.name;
+            }
             return vm.nameInSession;
         };
-
-        SessionService.registerListener(listener);
-
-
+        SessionService.registerListener(determineNameInNavbar());
     }]);
-
-
-//    mainctrl.registerMember = function () {
-//    memberService.gethorses().then(function (dataResponse) {
-//    mainctrl.memberInFocus= dataResponse;
-
-
 })();

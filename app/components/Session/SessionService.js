@@ -26,10 +26,13 @@
                 });
         };
 
-        var postSession = function postSession(session) {
+        var postSession = function postSession() {
             return $http.post(baseUrlSession, session)
                 .then(function (sessiondetails) {
                     $log.log('----> session details posted ', sessiondetails);
+                    listenerArray.forEach(function (listener) {
+                        listener(session);
+                    });
                 })
                 .catch(function (error) {
                     $log.log(error);
@@ -55,8 +58,11 @@
         var removeSessionDetails = function sessionDetails(id) {
             return $http.delete(id)
                 .success(function (res) {
-                    return res;
                     $log.log('session removed from id: ' + id);
+                    listenerArray.forEach(function (listener) {
+                        listener(session);
+                    });
+                    return res;
                 })
                 .error(function (error, status) {
                     console.log(error);
@@ -69,7 +75,7 @@
             'setMember': setMember,
             'postSession': postSession,
             'getSessionDetails': getSessionDetails,
-            'removeSessionDetails': removeSessionDetails,
+            'removeSessionDetails': removeSessionDetails
         };
     }]);
 })();
