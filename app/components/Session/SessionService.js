@@ -5,12 +5,7 @@
     angular.module('Session', []).factory('SessionService', ['memberService', 'PVConfig', '$http', '$log', function (memberService, PVConfig, $http, $log) {
 
         var session = {};
-        var listenerArray = [];
         var baseUrlSession = PVConfig.baseUrl + 'session';
-
-        var registerListener = function registerListener(listener) {
-            listenerArray.push(listener);
-        };
 
         var setMember = function setMember(memberId) {
             // retrieve member and put sessiondetails in Object.
@@ -30,9 +25,6 @@
             return $http.post(baseUrlSession, session)
                 .then(function (sessiondetails) {
                     $log.log('----> session details posted ', sessiondetails);
-                    listenerArray.forEach(function (listener) {
-                        listener(session);
-                    });
                 })
                 .catch(function (error) {
                     $log.log(error);
@@ -59,9 +51,6 @@
             return $http.delete(id)
                 .success(function (res) {
                     $log.log('session removed from id: ' + id);
-                    listenerArray.forEach(function (listener) {
-                        listener(session);
-                    });
                     return res;
                 })
                 .error(function (error, status) {
@@ -71,7 +60,6 @@
         };
 
         return {
-            'registerListener': registerListener,
             'setMember': setMember,
             'postSession': postSession,
             'getSessionDetails': getSessionDetails,

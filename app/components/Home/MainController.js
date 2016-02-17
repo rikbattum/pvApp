@@ -2,20 +2,10 @@
     'use strict';
 
 
-    angular.module('PVapp').controller('basicController', ['SessionService', function (SessionService) {
+    angular.module('PVapp').controller('basicController', ['NameNavBarService', function (NameNavBarService) {
         var vm = this;
         vm.memberinFocus = 'Vriendje';
-        vm.nameInSession = undefined;
-
-        var determineNameInNavbar = function determineNameInNavbar(session) {
-            if (vm.nameInSession === undefined) {
-                vm.nameInSession = 'Jouw boek';
-            }
-            else {
-                vm.nameInSession = session.name;
-            }
-            return vm.nameInSession;
-        };
-        SessionService.registerListener(determineNameInNavbar());
+        vm.nameInSession = NameNavBarService.getNameInNavbar();
+        console.log(vm.nameInSession);
     }]);
 })();

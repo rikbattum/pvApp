@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('PVapp').controller('RegisterController', ['memberService', '$timeout', '$location', '$log', 'SessionService', function (memberService, $timeout, $location, $log, SessionService) {
+    angular.module('PVapp').controller('RegisterController', ['memberService', '$timeout', '$location', '$log', 'SessionService', 'NameNavBarService', function (memberService, $timeout, $location, $log, SessionService, NameNavBarService) {
         var vm = this;
         vm.submitting = false;
         vm.showSuccessRegistration = false;
@@ -30,9 +30,10 @@
                 .then(function (data) {
                     $log.log('post succesfull', data);
                     vm.showSuccessRegistration = true;          // show succes message
-                    SessionService.setMember (vm.newMember.id);
+                    SessionService.setMember(vm.newMember.id);
                     SessionService.postSession();         //initialize session
-                    console.log ('session initialized with: ', vm.newMember.id);
+                    NameNavBarService.setNameInNavbar(vm.newMember.id); //initialize navbar for login
+                    console.log('session initialized with: ', vm.newMember.id);
                     $timeout(function () {
                         vm.showSuccessRegistration = false;     // disables succes message after timeout
                         $location.path('/');                    // routes to home on success after timeout

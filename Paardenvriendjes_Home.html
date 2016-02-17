@@ -49,6 +49,8 @@
     <!-- Angular scripting for PV components -->
     <script src="app/components/app.js" type="text/javascript"></script>
     <script src="app/components/Home/MainController.js" type="text/javascript"></script>
+    <script src="app/components/Home/NameNavBarService.js" type="text/javascript"></script>
+    <script src="app/components/Timeline/TimeLineController.js" type="text/javascript"></script>
     <script src="app/components/Member/RegisterController.js" type="text/javascript"></script>
     <script src="app/components/Ruiters/RuiterController.js" type="text/javascript"></script>
     <script src="app/components/Member/memberService.js" type="text/javascript"></script>
@@ -93,12 +95,9 @@
                         </li>
                         <li class="active"><a href="#/">PaardenVriendjes</a></li>
                         <li><a href="#/timeline">Timeline</a></li>
-                        <li><a href="#/memberpage">{{ctrlBasic.determineNameInNavbar()}}</a></li>
+                        <li><a href="#/memberpage">{{ctrlBasic.nameInSession}}</a></li>
                         <li><a href="#/paarden">Paarden</a></li>
                         <li><a href="#/ruiters">Ruiters</a></li>
-
-
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">More <span
                                     class="caret"></span></a>
