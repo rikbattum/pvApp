@@ -364,8 +364,7 @@ ul.unstyled {
     background-color: #DFF2BF;
     background-image: url('Pictures/Small%20pics/small_free_horse.png');
     background-position: center top;
-    }
-
+}
 
 .warning {
     color: #9F6000;
@@ -386,22 +385,21 @@ ul.unstyled {
     background-image: url('Pictures/Small%20pics/small_free_horse.png');
 }
 
-
 /* Specific CSS for Over Mij textbox */
 .textarea2 {
     width: 500px
     webkit-box-sizing: border-box;
     moz-box-sizing: border-box;
     box-sizing: border-box;
-    display:flex;
+    display: flex;
 }
 
 /*tag boxes for member page */
 
-.tag-box  {
+.tag-box {
     padding: 20px;
     margin-bottom: 30px;
-    width:100%;
+    width: 100%;
 }
 
 .tag-box-v6 {
@@ -415,36 +413,41 @@ ul.unstyled {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    flex:1 1 auto;
+    flex: 1 1 auto;
 }
-
 
 /* responsive text queries */
 @media screen and (max-width: 992px) {
-    p,.btn,input,div,span,h4 {
+    p, .btn, input, div, span, h4 {
         font-size: 95%;
     }
+
     h1 {
         font-size: 24px;
     }
+
     h2 {
         font-size: 22px;
     }
+
     h3 {
         font-size: 18px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    p,.btn,input,div,span,h4 {
+    p, .btn, input, div, span, h4 {
         font-size: 90%;
     }
+
     h1 {
         font-size: 20px;
     }
+
     h2 {
         font-size: 18px;
     }
+
     h3 {
         font-size: 16px;
     }
