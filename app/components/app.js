@@ -4,16 +4,9 @@
     // Declare app level module which depends on views, and components
     var PVapp = angular.module('PVapp', [
         'ngRoute', 'angular-ladda', 'ngTable', 'Session'
-    ]).
-        config(['$routeProvider', function ($routeProvider) {
+    ]).config(['$routeProvider', function ($routeProvider) {
             $routeProvider
-                .when('/',
-                    {
-                        redirectTo: function () {
-                            return '/myCarousel';
-                        }
-                    })
-                .when('/myCarousel', {
+                .when('/', {
                     templateUrl: 'app/components/Home/home.html ',
                     controller: 'basicController',
                     controllerAs: 'ctrlBasic'

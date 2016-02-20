@@ -2,10 +2,19 @@
     'use strict';
 
 
-    angular.module('PVapp').controller('basicController', ['NameNavBarService', function (NameNavBarService) {
+    angular.module('PVapp').controller('basicController', ['NameNavBarService', '$log', function (NameNavBarService, $log) {
+
         var vm = this;
-        vm.memberinFocus = 'Vriendje';
-        vm.nameInSession = NameNavBarService.getNameInNavbar();
-        console.log(vm.nameInSession);
+        vm.getNameInSession = function () {
+            try {
+                vm.nameMember = NameNavBarService.getNameInNavbar();
+                console.log(vm.nameMember);
+            }
+            catch (error) {
+                $log.debug(error);
+                $log.debug('test');
+            }
+        };
+        vm.getNameInSession();
     }]);
 })();

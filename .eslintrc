@@ -23,12 +23,9 @@
   },
   "globals": {
     "angular": 1
-
   },
   "jasmine": true,
   "plugins": [
     "jasmine"
   ]
-
-
 }

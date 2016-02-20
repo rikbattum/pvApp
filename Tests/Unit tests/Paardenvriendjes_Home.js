@@ -3,16 +3,16 @@
  */
 'use strict';
 
-describe ('Homepage Test', function () {
+describe('Homepage Test', function () {
 
 
-    beforeEach (module('PVapp'));
+    beforeEach(module('PVapp'));
 
-    it ('should have tests', function (){
-            expect(true).toBe(true);
+    it('should have tests', function () {
+        expect(true).toBe(true);
 
 
-        });
+    });
 
 
 });

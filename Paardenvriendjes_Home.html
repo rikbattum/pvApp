@@ -21,12 +21,13 @@
     <link href="app/CSS%20and%20content/styles.css" rel="stylesheet" type="text/css"/>
     <link href="app/CSS%20and%20content/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
     <!-- Custom styles for this template -->  <!-- Lada CSS -->
-    <link href="app/bower_components/ladda/dist/ladda-themeless.min.css"rel="stylesheet" type="text/css"/>
+    <link href="app/bower_components/ladda/dist/ladda-themeless.min.css" rel="stylesheet" type="text/css"/>
     <!-- Custom styles for this template -->  <!-- bootstrap-select CSS -->
-    <link href="app/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <link href="app/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet"
+          type="text/css">
     <!-- ng-table -->
     <link href="app/bower_components/ng-table/dist/ng-table.min.css" rel="stylesheet" type="text/css">
-<!-- font awesome -->
+    <!-- font awesome -->
     <link href="app/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core JavaScript
     <!-- Placed at the end of the document so the pages load faster -->
@@ -34,7 +35,7 @@
     <script src="app/components/components/ie10-viewport-bug-workaround.js" type="text/javascript"></script>
     <script src="app/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="app/bower_components/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
-    <script src="app/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"> type= "text/javascript"></script>
+    <script src="app/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"> type = "text/javascript" ></script>
     <script src="app/components/components/holder.js" type="text/javascript"></script>
 
     <!-- Angular scripting App, angular, ng-route; load app at end-->
@@ -45,7 +46,7 @@
     <script src="app/bower_components/ladda/dist/spin.min.js" type="text/javascript"></script>
     <script src="app/bower_components/ladda/dist/ladda.min.js" type="text/javascript"></script>
     <script src="app/bower_components/angular-ladda/dist/angular-ladda.min.js" type="text/javascript"></script>
-    <script src="app/components/Session/SessionService.js"type="text/javascript"></script>
+    <script src="app/components/Session/SessionService.js" type="text/javascript"></script>
     <!-- Angular scripting for PV components -->
     <script src="app/components/app.js" type="text/javascript"></script>
     <script src="app/components/Home/MainController.js" type="text/javascript"></script>
@@ -57,13 +58,13 @@
     <script src="app/components/Member/memberOverviewDirective.js" type="text/javascript"></script>
     <script src="app/components/Horses/horseService.js" type="text/javascript"></script>
     <script src="app/components/Horses/HorseController.js" type="text/javascript"></script>
-    <script src="app/components/Memberpage/MemberPageController.js"type="text/javascript"></script>
-    <script src="app/components/Horses/PaspoortController.js"type="text/javascript"></script>
+    <script src="app/components/Memberpage/MemberPageController.js" type="text/javascript"></script>
+    <script src="app/components/Horses/PaspoortController.js" type="text/javascript"></script>
     <!-- Directive login -->
     <script src="app/components/Member/registerDirective.js" type="text/javascript"></script>
     <!-- ng-table -->
     <script src="app/bower_components/ng-table/dist/ng-table.min.js"></script>
-    </head>
+</head>
 
 <body ng-controller="basicController as ctrlBasic" style="background-color: #FDF3E7;" ng-class="ng-cloak">
 
@@ -95,7 +96,7 @@
                         </li>
                         <li class="active"><a href="#/">PaardenVriendjes</a></li>
                         <li><a href="#/timeline">Timeline</a></li>
-                        <li><a href="#/memberpage">{{ctrlBasic.nameInSession}}</a></li>
+                        <li><a ng-href="#/memberpage" ng-bind="ctrlBasic.nameMember"></a></li>
                         <li><a href="#/paarden">Paarden</a></li>
                         <li><a href="#/ruiters">Ruiters</a></li>
                         <li class="dropdown">
@@ -120,15 +121,16 @@
 </div>
 
 <div class="container">
-<!-- Place central content here with NG-view>> Single Page Paardenvriendjes -->
-<ng-view> </ng-view>
+    <!-- Place central content here with NG-view>> Single Page Paardenvriendjes -->
+
+    <ng-view></ng-view>
 
 
-<!-- FOOTER -->
-<footer class = "margin-top-md">
-    <p class="pull-right"><a href="#">Back to top</a></p>
-    <p>&copy; 2015 PaardenVriendjes &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-</footer>
+    <!-- FOOTER -->
+    <footer class="margin-top-md">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 PaardenVriendjes &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
 
 </div>
 </body>

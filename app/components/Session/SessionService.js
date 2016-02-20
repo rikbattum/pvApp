@@ -31,7 +31,7 @@
                 });
         };
 
-        var getSessionDetails = function getsessionDetails() {
+        var getSessionDetails = function getsessionDetails(sessionID) {
             return $http({
                 method: 'GET',
                 url: baseUrlSession,
