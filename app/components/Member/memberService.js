@@ -5,7 +5,7 @@
     angular.module('PVapp')
         .factory('memberService', ['$http', 'PVConfig', '$log', function ($http, PVConfig, $log) {
 
-            var baseUrlMember = PVConfig.baseUrl + 'Member';
+            var baseUrlMember = PVConfig.baseUrl + 'member';
 
             var getMemberDetails = function (res) {
 

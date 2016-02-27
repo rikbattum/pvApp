@@ -29,14 +29,17 @@
             var x = Math.floor(Math.random() * (max - min + 1)) + min;
             var y = Math.floor(Math.random() * (max - min + 1)) + min;
             var z = Math.floor(Math.random() * (max - min + 1)) + min;
-            var memberid = Math.floor(x * y / z);
-            return (memberid);
+            var horseid = Math.floor(x * y / z);
+            return (horseid);
         }
 
         vm.registerHorse = function () {
             vm.submitting = true;
-            vm.newHorse.memberId = getRandomIntInclusive(0, 100000000000000);
-            $log.log('this is horseId', vm.newHorse.memberId);
+            vm.newHorse.horseId = getRandomIntInclusive(0, 100000000000000);
+            $log.log('this is horseId', vm.newHorse.horseId);
+
+
+
 
             horseService.postNewHorse(vm.newHorse)
                 .then(function (data) {

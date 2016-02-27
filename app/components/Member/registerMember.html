@@ -220,7 +220,7 @@
          ng-class="{'has-error' : registerForm.Spring_klasse.$invalid && registerForm.$submitted}">
         <label for="Spring_klasse" class="col-sm-2 control-label">Spring Klassen</label>
         <div class="col-sm-8">
-            <select id="Spring_klasse" name="Spring_klasse" class="form-control" ng-model=ctrlReg.sportKlasseSpringen
+            <select id="Spring_klasse" name="Spring_klasse" class="form-control" ng-model=ctrlReg.newMember.sportKlasseSpringen
                     ng-required="ctrlReg.newMember.springen">
                 <option>Recreatief</option>
                 <option>B</option>
@@ -238,7 +238,7 @@
         <label for="Dressuur_klasse" class="col-sm-2 control-label">Dressuur Klassen</label>
         <div class="col-sm-8">
             <select id="Dressuur_klasse" name="Dressuur_klasse" class="form-control"
-                    ng-model=ctrlReg.sportKlasseDressuur
+                    ng-model=ctrlReg.newMember.sportKlasseDressuur
                     ng-required="ctrlReg.newMember.dressuur">
                 <option>Recreatief</option>
                 <option>B</option>
@@ -256,7 +256,7 @@
         <label for="Dressuur_klasse" class="col-sm-2 control-label">Eventing Klassen</label>
         <div class="col-sm-8">
             <select id="eventing_klasse" name="eventing_klasse" class="form-control"
-                    ng-model=ctrlReg.sportKlasseEventing
+                    ng-model=ctrlReg.newMember.sportKlasseEventing
                     ng-required="ctrlReg.newMember.eventing">
                 <option>Recreatief</option>
                 <option>B</option>
@@ -273,7 +273,7 @@
          ng-class="{'has-error' : registerForm.Mennen_klasse.$invalid && registerForm.$submitted}">
         <label for="Mennen_klasse" class="col-sm-2 control-label">Mennen Klassen</label>
         <div class="col-sm-8">
-            <select id="Mennen_klasse" name="Mennen_klasse" class="form-control" ng-model=ctrlReg.sportKlasseMennen
+            <select id="Mennen_klasse" name="Mennen_klasse" class="form-control" ng-model=ctrlReg.newMember.sportKlasseMennen
                     ng-required="ctrlReg.newMember.mennen">
                 <option>Recreatief</option>
                 <option>B</option>
@@ -290,7 +290,7 @@
          ng-class="{'has-error' : registerForm.Voltige_klasse.$invalid && registerForm.$submitted}">
         <label for="Voltige_klasse" class="col-sm-2 control-label">Voltige Klassen</label>
         <div class="col-sm-8">
-            <select id="Voltige_klasse" name="Voltige_klasse" class="form-control" ng-model=ctrlReg.sportKlasseVoltige
+            <select id="Voltige_klasse" name="Voltige_klasse" class="form-control" ng-model=ctrlReg.newMember.sportKlasseVoltige
                     ng-required="ctrlReg.newMember.voltige">
                 <option>Recreatief</option>
                 <option>B</option>
