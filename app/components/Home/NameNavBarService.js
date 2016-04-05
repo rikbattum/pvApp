@@ -2,7 +2,7 @@
     'use strict';
 
 
-    angular.module('PVapp').factory('NameNavBarService', ['SessionService', '$log', function (SessionService, $log) {
+    angular.module('PVapp').factory('nameNavBarService', ['sessionService', '$log', function (sessionService, $log) {
 
         var nameInsession;
 
@@ -11,8 +11,9 @@
                 nameInsession = 'Member';
             }
             else {
-                SessionService.getSessionDetails(memberID)
+                sessionService.getSessionDetails(memberID)
                     .then(function (session) {
+                        console.log('this is specific navbar session object' + session);
                         if (session.data[0].voornaam === undefined) {
                             nameInsession = 'Member';
                             $log.debug('---> session for name', session);

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('PVapp').controller('RegisterController', ['memberService', '$timeout', '$location', '$log', 'SessionService', 'horseService', 'NameNavBarService', function (memberService, $timeout, $location, $log, SessionService, horseService, NameNavBarService) {
+    angular.module('PVapp').controller('RegisterController', ['memberService', '$timeout', '$location', '$log', 'sessionService', 'horseService', 'nameNavBarService', function (memberService, $timeout, $location, $log, sessionService, horseService, nameNavBarService) {
         var vm = this;
         vm.submitting = false;
         vm.showSuccessRegistration = false;
@@ -36,30 +36,27 @@
                     horseArray.push(vm.newMember.paard1, vm.newMember.paard2, vm.newMember.paard3, vm.newMember.paard4, vm.newMember.paard5, vm.newMember.paard6, vm.newMember.paard7, vm.newMember.paard8,
                         vm.newMember.paard9, vm.newMember.paard10);
                     $log.debug('horseArray', horseArray);
-                    for (var i = 0; i < horseArray.length; i++) {
-                        if (horseArray[i] !== null) {
+                    angular.forEach(horseArray, function (horse) {
+                        if (horse !== undefined) {
+                            console.log(' ,,,,>>' + horse);
                             var newHorse = {};
-                            newHorse.memberId = member.id;
-                            newHorse.voornaam = i;
-                            $log.log('meberid ', member.id);
-                            $log.log('horsearray [i]', i);
-                            $log.log('newHorse', newHorse)
-                            horseService.postNewHorse(newHorse);
-                            $log.log('post Horse succesfull');
+                            newHorse.voornaam = horse;                              // only set horse name for further registration
+                            newHorse.memberId = vm.newMember.id;                    // specificly needed foreign key
+                            horseService.postNewHorse(horse);
                         }
-                    }
+                    });
                     return member;
                 })
                 .then(function (member) {                                            //initialize session
                     console.log('--->', member.config.data.id);
                     console.log('--->id', member.config.data.id);
-                    SessionService.setMember(member.config.data.id);
-                    SessionService.postSession();
+                    sessionService.setMember(member.config.data.id);
+                    sessionService.postSession();
                     $log.debug('session initialized with: ', member.config.data.id);
                     return member;
                 })
                 .then(function (member) {
-                    NameNavBarService.setNameInNavbar(member.config.data.id);       //initialize navbar for login
+                    nameNavBarService.setNameInNavbar(member.config.data.id);       //initialize navbar for login
                 })
                 .then(function () {
                     $timeout(function () {

@@ -4,8 +4,8 @@
     angular.module('PVapp').controller('HorseController', ['horseService', '$location', '$log', '$timeout', function (horseService, $location, $log, $timeout) {
         var vm = this;
         vm.submitting = false;
-        vm.showSuccessRegistration;
-        vm.showFailureRegistration;
+        vm.showSuccessRegistration = false;
+        vm.showFailureRegistration = false;
         vm.horsetlist = [];
         vm.selectedHorse = 'jouw paard';
         vm.waardeklasse = ['onbetaalbaar voor mij', '0-1.000', '1.000-2.000', '2.000-5.000', '5.000-10.000', '10.000-15.000', '15.000-20.000', '20.000-25.000', '25.000-30.000', '30.000-50.000', '50.000+'];
@@ -25,20 +25,9 @@
                 });
         };
 
-        function getRandomIntInclusive(min, max) {
-            var x = Math.floor(Math.random() * (max - min + 1)) + min;
-            var y = Math.floor(Math.random() * (max - min + 1)) + min;
-            var z = Math.floor(Math.random() * (max - min + 1)) + min;
-            var horseid = Math.floor(x * y / z);
-            return (horseid);
-        }
-
         vm.registerHorse = function () {
             vm.submitting = true;
-            vm.newHorse.horseId = getRandomIntInclusive(0, 100000000000000);
-            $log.log('this is horseId', vm.newHorse.horseId);
-
-
+            console.log('this will be posted --- >' + vm.newHorse);
 
 
             horseService.postNewHorse(vm.newHorse)
@@ -49,11 +38,9 @@
                     $timeout(function () {
                         vm.showSuccessRegistration = false;     // disables succes message after timeout
                         $location.path('/');                    // routes to home on success after timeout
-                    }, 1000)
-                        .then(function (data) {
-                            SessionService.initializeSession();
-                        });
-                }, function (error) {
+                    }, 1000);
+                })
+                .catch(function (error) {
                     $log.log('this is ', vm.newHorse);
                     vm.showFailureRegistration = true;
                     $timeout(function () {
@@ -63,20 +50,6 @@
                     vm.submitting = false;                 // handles the button to become available again.
                 });
         };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         vm.setpassport = function setpassport() {

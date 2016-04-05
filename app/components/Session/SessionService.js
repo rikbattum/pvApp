@@ -2,7 +2,7 @@
     'use strict';
 
 
-    angular.module('Session', []).factory('SessionService', ['memberService', 'PVConfig', '$http', '$log', function (memberService, PVConfig, $http, $log) {
+    angular.module('Session', []).factory('sessionService', ['memberService', 'PVConfig', '$http', '$log', function (memberService, PVConfig, $http, $log) {
 
         var session = {};
         var baseUrlSession = PVConfig.baseUrl + 'session';
@@ -21,7 +21,7 @@
                 });
         };
 
-        var postSession = function postSession() {
+        var postSession = function postSession(session) {
             return $http.post(baseUrlSession, session)
                 .then(function (sessiondetails) {
                     $log.log('----> session details posted ', sessiondetails);

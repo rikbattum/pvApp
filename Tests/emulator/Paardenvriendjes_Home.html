@@ -51,7 +51,6 @@
     <script src="app/components/app.js" type="text/javascript"></script>
     <script src="app/components/Home/MainController.js" type="text/javascript"></script>
     <script src="app/components/Home/nameNavBarService.js" type="text/javascript"></script>
-    <script src="app/components/Home/loginService.js" type="text/javascript"></script>
     <script src="app/components/Timeline/TimeLineController.js" type="text/javascript"></script>
     <script src="app/components/Member/RegisterController.js" type="text/javascript"></script>
     <script src="app/components/Ruiters/RuiterController.js" type="text/javascript"></script>
@@ -89,9 +88,9 @@
                                style="color:#f7ecb5">Login</a>
                             <div class="dropdown-menu" style="padding:17px;">
                                 <form class="nav-form" id="formLogin">
-                                    <input name="email" id="email" type="text" placeholder="Email" ng-model="ctrlBasic.loginInfo.email">
-                                    <input name="password" id="password" type="password" placeholder="Password" ng-model = ctrlBasic.loginInfo.password><br>
-                                    <button class="btn-success" id="btnLogin" ng-click="ctrlBasic.login()">Login</button>
+                                    <input name="username" id="username" type="text" placeholder="Username">
+                                    <input name="password" id="password" type="password" placeholder="Password"><br>
+                                    <button class="btn-success" id="btnLogin">Login</button>
                                 </form>
                             </div>
                         </li>

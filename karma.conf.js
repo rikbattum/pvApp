@@ -30,10 +30,11 @@ module.exports = function (config) {
             'app/components/Ruiters/ruiterController.js',
             'app/components/Horses/HorseController.js',
             'app/components/Horses/horseService.js',
-            'app/components/Session/SessionService.js',
+            'app/components/Session/sessionService.js',
             'app/Register/registerDirective.js',
             'app/components/Member/RegisterController.js',
             'app/components/Member/memberService.js',
+            'app/components/Home/nameNavBarService.js',
             'Tests/e2e-tests/*.js',
             'Tests/Unit tests/*.js'],
 
