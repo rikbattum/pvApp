@@ -49,13 +49,13 @@
                 });
         }])
         .constant('PVConfig', {
-            'baseUrl': 'http://localhost:8080/pvAppApi/paardenvriendjes/'
+            'baseUrl': 'http://localhost:8080/'
         });
 
 
     PVapp.config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        $httpProvider.defaults.headers.common['X-Requested-With'];
     }
     ]);
 })();

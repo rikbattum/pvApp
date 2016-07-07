@@ -5,7 +5,7 @@
     angular.module('PVapp')
         .factory('memberService', ['$http', 'PVConfig', '$log', function ($http, PVConfig, $log) {
 
-            var baseUrlMember = PVConfig.baseUrl + 'member';
+            var baseUrlMember = PVConfig.baseUrl + 'members';
 
             var getMemberDetails = function (res) {
 
@@ -13,8 +13,10 @@
                     method: 'GET',
                     url: baseUrlMember,
                     headers: {
-                        'Accept': 'application/json'
-                    }
+                        'Accept': 'application/json',
+                    'Authorization': 'Basic user:secret'
+                    },
+                    withCredentials: true
                 })
                     .success(function (res) {
                         $log.log('reached get statement Members');
@@ -48,8 +50,10 @@
                     method: 'GET',
                     url: baseUrlMember + '/' + id,
                     headers: {
-                        'Accept': 'application/json'
-                    }
+                        'Accept': 'application/json',
+                        'Authorization': 'Basic user:secret'
+                    },
+                    withCredentials: true
                 })
                     .success(function (res) {
                         $log.log('reached get statement of individual Member by memberID');
